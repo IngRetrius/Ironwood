@@ -1,37 +1,197 @@
-/* Typography */
+/* ========================================
+   TYPOGRAPHY STYLES
+   ======================================== */
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--color-black);
+/* Base Typography */
+body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-normal);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--color-text-primary);
+    margin-bottom: 0.5em;
 }
 
 h1 {
-  font-size: var(--font-size-5xl);
+    font-size: var(--font-size-5xl);
+    letter-spacing: -0.02em;
 }
 
 h2 {
-  font-size: var(--font-size-4xl);
+    font-size: var(--font-size-4xl);
+    letter-spacing: -0.01em;
 }
 
 h3 {
-  font-size: var(--font-size-3xl);
+    font-size: var(--font-size-3xl);
 }
 
+h4 {
+    font-size: var(--font-size-2xl);
+}
+
+h5 {
+    font-size: var(--font-size-xl);
+}
+
+h6 {
+    font-size: var(--font-size-lg);
+}
+
+/* Paragraphs */
 p {
-  font-family: var(--font-body);
-  font-size: var(--font-size-base);
-  line-height: 1.7;
-  color: var(--color-gray-600);
+    margin-bottom: 1em;
+    line-height: var(--line-height-relaxed);
 }
 
+p:last-child {
+    margin-bottom: 0;
+}
+
+/* Links */
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+}
+
+/* Strong/Bold */
+strong,
+b {
+    font-weight: var(--font-weight-bold);
+}
+
+/* Emphasis/Italic */
+em,
+i {
+    font-style: italic;
+}
+
+/* Small text */
+small {
+    font-size: var(--font-size-sm);
+}
+
+/* Section Title */
 .section-title {
-  font-size: var(--font-size-4xl);
-  font-weight: 600;
-  margin-bottom: var(--spacing-xl);
+    font-family: var(--font-primary);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-xl);
 }
 
 .section-title--centered {
-  text-align: center;
+    text-align: center;
+}
+
+/* Text Utilities */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+.text-secondary {
+    color: var(--color-text-secondary);
+}
+
+.text-light {
+    color: var(--color-text-light);
+}
+
+/* Font Weight Utilities */
+.font-light {
+    font-weight: var(--font-weight-light);
+}
+
+.font-normal {
+    font-weight: var(--font-weight-normal);
+}
+
+.font-medium {
+    font-weight: var(--font-weight-medium);
+}
+
+.font-semibold {
+    font-weight: var(--font-weight-semibold);
+}
+
+.font-bold {
+    font-weight: var(--font-weight-bold);
+}
+
+/* ========================================
+   RESPONSIVE TYPOGRAPHY
+   ======================================== */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: var(--font-size-4xl);
+    }
+    
+    h2 {
+        font-size: var(--font-size-3xl);
+    }
+    
+    h3 {
+        font-size: var(--font-size-2xl);
+    }
+    
+    h4 {
+        font-size: var(--font-size-xl);
+    }
+    
+    .section-title {
+        font-size: clamp(1.75rem, 5vw, 2rem);
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 15px;
+    }
+    
+    h1 {
+        font-size: var(--font-size-3xl);
+    }
+    
+    h2 {
+        font-size: var(--font-size-2xl);
+    }
 }

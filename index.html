@@ -6,6 +6,11 @@
     <meta name="description" content="Delivering safe, compliant, and future-ready railway infrastructure solutions">
     <title>Ironwood Infrastructure - We Engineer the Future of Rail</title>
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <!-- CSS Files -->
     <link rel="stylesheet" href="assets/css/variables.css">
     <link rel="stylesheet" href="assets/css/reset.css">
@@ -13,15 +18,12 @@
     <link rel="stylesheet" href="assets/css/layout.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     
-    <!-- Header -->
+    <!-- ============================================
+         HEADER / NAVIGATION
+         ============================================ -->
     <header class="header">
         <div class="container">
             <div class="header__content">
@@ -44,7 +46,7 @@
                     <span class="menu-toggle__line"></span>
                 </button>
                 
-                <!-- Navigation (Hidden on mobile by default) -->
+                <!-- Navigation -->
                 <nav class="nav" id="mainNav">
                     <ul class="nav__list">
                         <li class="nav__item"><a href="index.html" class="nav__link nav__link--active">Home</a></li>
@@ -59,23 +61,28 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
     <section class="hero">
         <div class="hero__background">
-            <img src="assets/images/hero/home-hero.png" alt="Hero Image" class="hero__image">
+            <img src="assets/images/hero/home-hero.png" alt="Railway bridge infrastructure" class="hero__image">
             <div class="hero__overlay"></div>
         </div>
         
         <div class="container">
+            <!-- Hero Content (Left) -->
             <div class="hero__content">
                 <h1 class="hero__title">We Engineer the Future of Rail</h1>
                 <p class="hero__subtitle">Delivering safe, compliant, and future-ready railway infrastructure solutions</p>
             </div>
             
-            <!-- Carousel/Slider -->
+            <!-- Hero Carousel (Right) - Stacked Cards -->
             <div class="hero__carousel">
                 <button class="carousel__nav carousel__nav--prev" id="carouselPrev" aria-label="Previous">
-                    ‹
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
                 </button>
                 
                 <div class="carousel__container">
@@ -86,25 +93,40 @@
                             <div class="insight-card">
                                 <img src="assets/images/projects/nuclear-energy.jpg" alt="Nuclear Energy Project" class="insight-card__image">
                                 <div class="insight-card__content">
-                                    <h3 class="insight-card__title">America's Nuclear Energy Moment Is Here — Let's Seize It</h3>
-                                    <a href="#" class="insight-card__link">
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <path d="M5 15L15 5M15 5H5M15 5V15" stroke="currentColor" stroke-width="2"/>
+                                    <h3 class="insight-card__title">America's Nuclear Energy Moment Is Here</h3>
+                                    <a href="#" class="insight-card__link" aria-label="Read more">
+                                        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M5 15L15 5M15 5H5M15 5V15"/>
                                         </svg>
                                     </a>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Slide 2 (Ejemplo - puedes duplicar) -->
+                        <!-- Slide 2 -->
                         <div class="carousel__slide">
                             <div class="insight-card">
-                                <img src="assets/images/projects/project-02.jpg" alt="Project 2" class="insight-card__image">
+                                <img src="assets/images/projects/project-02.jpg" alt="Railway Safety Project" class="insight-card__image">
                                 <div class="insight-card__content">
                                     <h3 class="insight-card__title">Enhancing Railway Safety Across Canada</h3>
-                                    <a href="#" class="insight-card__link">
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <path d="M5 15L15 5M15 5H5M15 5V15" stroke="currentColor" stroke-width="2"/>
+                                    <a href="#" class="insight-card__link" aria-label="Read more">
+                                        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M5 15L15 5M15 5H5M15 5V15"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3 -->
+                        <div class="carousel__slide">
+                            <div class="insight-card">
+                                <img src="assets/images/projects/project-03.jpg" alt="Infrastructure Project" class="insight-card__image">
+                                <div class="insight-card__content">
+                                    <h3 class="insight-card__title">Modern Rail Infrastructure Solutions</h3>
+                                    <a href="#" class="insight-card__link" aria-label="Read more">
+                                        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M5 15L15 5M15 5H5M15 5V15"/>
                                         </svg>
                                     </a>
                                 </div>
@@ -115,13 +137,17 @@
                 </div>
                 
                 <button class="carousel__nav carousel__nav--next" id="carouselNext" aria-label="Next">
-                    ›
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ============================================
+         ABOUT SECTION
+         ============================================ -->
     <section class="about-section">
         <div class="container">
             <div class="about-section__grid">
@@ -138,71 +164,132 @@
                     <a href="pages/about.html" class="btn btn--primary">See What Sets Us Apart</a>
                 </div>
                 <div class="about-section__image">
-                    <!-- Imagen placeholder con ruido rosa -->
                     <div class="placeholder-image"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- ============================================
+         SERVICES SECTION (CAROUSEL - LEFT ALIGNED)
+         ============================================ -->
     <section class="services-section">
         <div class="container">
-            <h2 class="section-title section-title--centered">Services</h2>
+            <h2 class="section-title">Services</h2>
             
-            <div class="services-grid">
-                
-                <!-- Service Card 1 -->
-                <div class="service-card">
-                    <div class="service-card__image">
-                        <div class="placeholder-image"></div>
-                    </div>
-                    <div class="service-card__content">
-                        <p class="service-card__description">"Cuando pasa el mouse se despliega descripción corta"</p>
-                        <h3 class="service-card__title">Project Management</h3>
+            <div class="services-carousel">
+                <div class="services-carousel__container">
+                    <div class="services-carousel__track" id="servicesCarouselTrack">
+                        
+                        <!-- Service Card 1 -->
+                        <div class="service-card">
+                            <div class="service-card__image">
+                                <div class="placeholder-image"></div>
+                                <span class="service-card__label">CONSULTING</span>
+                                <div class="service-card__overlay">
+                                    <p class="service-card__description">Comprehensive project oversight ensuring timely delivery and regulatory compliance for complex railway infrastructure initiatives.</p>
+                                </div>
+                            </div>
+                            <div class="service-card__content">
+                                <h3 class="service-card__title">Project Management</h3>
+                                <a href="#" class="service-card__arrow" aria-label="Learn more">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 15L15 5M15 5H5M15 5V15"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Service Card 2 -->
+                        <div class="service-card">
+                            <div class="service-card__image">
+                                <div class="placeholder-image"></div>
+                                <span class="service-card__label">SAFETY</span>
+                                <div class="service-card__overlay">
+                                    <p class="service-card__description">Expert analysis and solutions for railway crossing safety, compliance, and risk mitigation across Canada.</p>
+                                </div>
+                            </div>
+                            <div class="service-card__content">
+                                <h3 class="service-card__title">Grade Crossing Safety</h3>
+                                <a href="#" class="service-card__arrow" aria-label="Learn more">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 15L15 5M15 5H5M15 5V15"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Service Card 3 -->
+                        <div class="service-card">
+                            <div class="service-card__image">
+                                <div class="placeholder-image"></div>
+                                <span class="service-card__label">TRAINING</span>
+                                <div class="service-card__overlay">
+                                    <p class="service-card__description">Specialized training programs for railway professionals covering safety protocols and regulatory requirements.</p>
+                                </div>
+                            </div>
+                            <div class="service-card__content">
+                                <h3 class="service-card__title">Training Programs</h3>
+                                <a href="#" class="service-card__arrow" aria-label="Learn more">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 15L15 5M15 5H5M15 5V15"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Service Card 4 -->
+                        <div class="service-card">
+                            <div class="service-card__image">
+                                <div class="placeholder-image"></div>
+                                <span class="service-card__label">COMPLIANCE</span>
+                                <div class="service-card__overlay">
+                                    <p class="service-card__description">Ensuring full adherence to CTA regulations and industry standards for railway infrastructure projects.</p>
+                                </div>
+                            </div>
+                            <div class="service-card__content">
+                                <h3 class="service-card__title">Compliance Services</h3>
+                                <a href="#" class="service-card__arrow" aria-label="Learn more">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 15L15 5M15 5H5M15 5V15"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Service Card 5 -->
+                        <div class="service-card">
+                            <div class="service-card__image">
+                                <div class="placeholder-image"></div>
+                                <span class="service-card__label">ENGINEERING</span>
+                                <div class="service-card__overlay">
+                                    <p class="service-card__description">Advanced engineering solutions for bridges and complex railway infrastructure systems.</p>
+                                </div>
+                            </div>
+                            <div class="service-card__content">
+                                <h3 class="service-card__title">Bridge Engineering</h3>
+                                <a href="#" class="service-card__arrow" aria-label="Learn more">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 15L15 5M15 5H5M15 5V15"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
                 
-                <!-- Service Card 2 -->
-                <div class="service-card">
-                    <div class="service-card__image">
-                        <div class="placeholder-image"></div>
-                    </div>
-                    <div class="service-card__content">
-                        <p class="service-card__description">"Cuando pasa el mouse se despliega descripción corta"</p>
-                        <h3 class="service-card__title">Grade Crossing Safety</h3>
-                    </div>
-                </div>
-                
-                <!-- Service Card 3 -->
-                <div class="service-card">
-                    <div class="service-card__image">
-                        <div class="placeholder-image"></div>
-                    </div>
-                    <div class="service-card__content">
-                        <p class="service-card__description">"Cuando pasa el mouse se despliega descripción corta"</p>
-                        <h3 class="service-card__title">Training Programs</h3>
-                    </div>
-                </div>
-                
-                <!-- Service Card 4 -->
-                <div class="service-card">
-                    <div class="service-card__image">
-                        <div class="placeholder-image"></div>
-                    </div>
-                    <div class="service-card__content">
-                        <p class="service-card__description">"Cuando pasa el mouse se despliega descripción corta"</p>
-                        <h3 class="service-card__title">Compliance Services</h3>
-                    </div>
-                </div>
-                
+                <!-- Controls added by JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- Insights Section -->
+    <!-- ============================================
+         INSIGHTS SECTION
+         ============================================ -->
     <section class="insights-section">
         <div class="container">
+            <h2 class="section-title">Latest Insights</h2>
             <div class="insights-grid">
                 
                 <!-- Insight 1 -->
@@ -236,36 +323,79 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ============================================
+         FOOTER - MINIMAL & CLEAN
+         ============================================ -->
     <footer class="footer">
         <div class="container">
-            <div class="footer__content">
+            <div class="footer__grid">
+                <!-- Brand & Contact Info -->
                 <div class="footer__brand">
-                    <span class="footer__logo">✱ Namedly</span>
+                    <!-- Logo -->
+                    <div class="footer__logo">
+                        <div class="footer__logo-icon">
+                            <span class="footer__logo-circle footer__logo-circle--orange"></span>
+                            <span class="footer__logo-circle footer__logo-circle--white"></span>
+                        </div>
+                        <div class="footer__logo-text">
+                            <span class="footer__logo-brand">IRONWOOD</span>
+                            <span class="footer__logo-subtitle">Infrastructure Inc.</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Information -->
+                    <div class="footer__info">
+                        <div class="footer__info-item">
+                            <svg class="footer__info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span>2425 Matheson Blvd. E., Suite 824<br>Mississauga, Ontario, L4W 5K4</span>
+                        </div>
+                        
+                        <div class="footer__info-item">
+                            <svg class="footer__info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <span>647-336-5497</span>
+                        </div>
+                        
+                        <div class="footer__info-item">
+                            <svg class="footer__info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <span>Info@ironwoodinfrastructure.com</span>
+                        </div>
+                    </div>
                 </div>
-                <nav class="footer__nav">
-                    <a href="#" class="footer__link">Features</a>
-                    <a href="#" class="footer__link">Learn more</a>
-                    <a href="#" class="footer__link">Support</a>
-                </nav>
+                
+                <!-- Social Links -->
                 <div class="footer__social">
-                    <a href="#" class="footer__social-link" aria-label="Instagram">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M10 0C7.28 0 6.944.012 5.877.06 4.813.11 4.086.278 3.45.525a4.945 4.945 0 00-1.788 1.163A4.947 4.947 0 00.525 3.45C.278 4.086.11 4.813.06 5.877.012 6.944 0 7.28 0 10s.012 3.056.06 4.123c.05 1.064.218 1.791.465 2.427a4.947 4.947 0 001.163 1.788 4.945 4.945 0 001.788 1.163c.636.247 1.363.415 2.427.465C6.944 19.988 7.28 20 10 20s3.056-.012 4.123-.06c1.064-.05 1.791-.218 2.427-.465a4.947 4.947 0 001.788-1.163 4.945 4.945 0 001.163-1.788c.247-.636.415-1.363.465-2.427.048-1.067.06-1.403.06-4.123s-.012-3.056-.06-4.123c-.05-1.064-.218-1.791-.465-2.427a4.947 4.947 0 00-1.163-1.788A4.945 4.945 0 0016.55.525C15.914.278 15.187.11 14.123.06 13.056.012 12.72 0 10 0zm0 1.802c2.67 0 2.987.01 4.041.058.975.045 1.504.207 1.857.344.467.182.8.399 1.15.748.35.35.566.683.748 1.15.137.353.3.882.344 1.857.048 1.054.058 1.37.058 4.041s-.01 2.987-.058 4.041c-.045.975-.207 1.504-.344 1.857-.182.467-.399.8-.748 1.15-.35.35-.683.566-1.15.748-.353.137-.882.3-1.857.344-1.054.048-1.37.058-4.041.058s-2.987-.01-4.041-.058c-.975-.045-1.504-.207-1.857-.344a3.097 3.097 0 01-1.15-.748 3.098 3.098 0 01-.748-1.15c-.137-.353-.3-.882-.344-1.857-.048-1.054-.058-1.37-.058-4.041s.01-2.987.058-4.041c.045-.975.207-1.504.344-1.857.182-.467.399-.8.748-1.15.35-.35.683-.566 1.15-.748.353-.137.882-.3 1.857-.344 1.054-.048 1.37-.058 4.041-.058z"/>
-                            <path d="M10 13.333a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666zm0-8.468a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm6.538-.203a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="footer__social-link" aria-label="LinkedIn">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M18.571 0H1.43A1.43 1.43 0 000 1.429v17.142A1.43 1.43 0 001.429 20h17.142A1.43 1.43 0 0020 18.571V1.43A1.43 1.43 0 0018.571 0zM6.071 17.143H3.214V7.857h2.857v9.286zM4.643 6.571a1.643 1.643 0 110-3.285 1.643 1.643 0 010 3.285zm12.5 10.572h-2.857v-4.524c0-1.075-.022-2.46-1.496-2.46-1.5 0-1.729 1.171-1.729 2.381v4.603h-2.857V7.857h2.738v1.271h.04c.381-.723 1.313-1.486 2.702-1.486 2.89 0 3.426 1.903 3.426 4.375v5.126h.033z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="footer__social-link" aria-label="Twitter">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M6.29 18.25c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"/>
-                        </svg>
-                    </a>
+                    <h3 class="footer__social-title">Connect With Us</h3>
+                    <div class="footer__social-links">
+                        <a href="#" class="footer__social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M18.571 0H1.43A1.43 1.43 0 000 1.429v17.142A1.43 1.43 0 001.429 20h17.142A1.43 1.43 0 0020 18.571V1.43A1.43 1.43 0 0018.571 0zM6.071 17.143H3.214V7.857h2.857v9.286zM4.643 6.571a1.643 1.643 0 110-3.285 1.643 1.643 0 010 3.285zm12.5 10.572h-2.857v-4.524c0-1.075-.022-2.46-1.496-2.46-1.5 0-1.729 1.171-1.729 2.381v4.603h-2.857V7.857h2.738v1.271h.04c.381-.723 1.313-1.486 2.702-1.486 2.89 0 3.426 1.903 3.426 4.375v5.126h.033z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M6.29 18.25c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0C7.28 0 6.944.012 5.877.06 4.813.11 4.086.278 3.45.525a4.945 4.945 0 00-1.788 1.163A4.947 4.947 0 00.525 3.45C.278 4.086.11 4.813.06 5.877.012 6.944 0 7.28 0 10s.012 3.056.06 4.123c.05 1.064.218 1.791.465 2.427a4.947 4.947 0 001.163 1.788 4.945 4.945 0 001.788 1.163c.636.247 1.363.415 2.427.465C6.944 19.988 7.28 20 10 20s3.056-.012 4.123-.06c1.064-.05 1.791-.218 2.427-.465a4.947 4.947 0 001.788-1.163 4.945 4.945 0 001.163-1.788c.247-.636.415-1.363.465-2.427.048-1.067.06-1.403.06-4.123s-.012-3.056-.06-4.123c-.05-1.064-.218-1.791-.465-2.427a4.947 4.947 0 00-1.163-1.788A4.945 4.945 0 0016.55.525C15.914.278 15.187.11 14.123.06 13.056.012 12.72 0 10 0zm0 1.802c2.67 0 2.987.01 4.041.058.975.045 1.504.207 1.857.344.467.182.8.399 1.15.748.35.35.566.683.748 1.15.137.353.3.882.344 1.857.048 1.054.058 1.37.058 4.041s-.01 2.987-.058 4.041c-.045.975-.207 1.504-.344 1.857-.182.467-.399.8-.748 1.15-.35.35-.683.566-1.15.748-.353.137-.882.3-1.857.344-1.054.048-1.37.058-4.041.058s-2.987-.01-4.041-.058c-.975-.045-1.504-.207-1.857-.344a3.097 3.097 0 01-1.15-.748 3.098 3.098 0 01-.748-1.15c-.137-.353-.3-.882-.344-1.857-.048-1.054-.058-1.37-.058-4.041s.01-2.987.058-4.041c.045-.975.207-1.504.344-1.857.182-.467.399-.8.748-1.15.35-.35.683-.566 1.15-.748.353-.137.882-.3 1.857-.344 1.054-.048 1.37-.058 4.041-.058z"/>
+                                <path d="M10 13.333a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666zm0-8.468a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm6.538-.203a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
+            </div>
+            
+            <!-- Bottom Copyright -->
+            <div class="footer__bottom">
+                <p>&copy; 2025 Ironwood Infrastructure Inc. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -273,6 +403,7 @@
     <!-- JavaScript Files -->
     <script src="assets/js/navigation.js"></script>
     <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/services-carousel.js"></script>
     
 </body>
 </html>
