@@ -1,0 +1,198 @@
+/* Components */
+
+/* Button */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  text-align: center;
+}
+
+.btn--primary {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-gray-900);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Carousel */
+.hero__carousel {
+  position: relative;
+  max-width: 400px;
+}
+
+.carousel__container {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.carousel__track {
+  display: flex;
+  transition: transform var(--transition-slow);
+}
+
+.carousel__slide {
+  min-width: 100%;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.carousel__slide--active {
+  opacity: 1;
+}
+
+.carousel__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-2xl);
+  color: var(--color-black);
+  transition: all var(--transition-base);
+  z-index: 10;
+}
+
+.carousel__nav:hover {
+  background-color: var(--color-white);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel__nav--prev {
+  left: -20px;
+}
+
+.carousel__nav--next {
+  right: -20px;
+}
+
+/* Insight Card */
+.insight-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.insight-card__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.insight-card__content {
+  padding: var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+}
+
+.insight-card__title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.insight-card__link {
+  color: var(--color-orange);
+  flex-shrink: 0;
+  transition: transform var(--transition-base);
+}
+
+.insight-card__link:hover {
+  transform: translateX(5px);
+}
+
+/* Service Card */
+.service-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.service-card__image {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.service-card__content {
+  padding: var(--spacing-lg);
+}
+
+.service-card__description {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+  margin-bottom: var(--spacing-sm);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.service-card:hover .service-card__description {
+  opacity: 1;
+  max-height: 100px;
+}
+
+.service-card__title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+}
+
+/* Insight Article */
+.insight-article {
+  padding: var(--spacing-lg);
+  border-left: 3px solid var(--color-gray-200);
+  transition: border-color var(--transition-base);
+}
+
+.insight-article:hover {
+  border-left-color: var(--color-orange);
+}
+
+.insight-article__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+}
+
+.insight-article__excerpt {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-600);
+  line-height: 1.7;
+}
+
+/* Placeholder Image (Pink noise effect) */
+.placeholder-image {
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(45deg, #FFE5F1 25%, transparent 25%),
+    linear-gradient(-45deg, #FFE5F1 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #FFE5F1 75%),
+    linear-gradient(-45deg, transparent 75%, #FFE5F1 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  background-color: #FFF0F7;
+}

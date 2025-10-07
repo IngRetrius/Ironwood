@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Delivering safe, compliant, and future-ready railway infrastructure solutions">
+    <title>Ironwood Infrastructure - We Engineer the Future of Rail</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/typography.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <!-- Logo -->
+                <a href="index.html" class="logo">
+                    <div class="logo__icon">
+                        <span class="logo__circle logo__circle--orange"></span>
+                        <span class="logo__circle logo__circle--black"></span>
+                    </div>
+                    <div class="logo__text">
+                        <span class="logo__brand">IRONWOOD</span>
+                        <span class="logo__subtitle">Infrastructure</span>
+                    </div>
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span class="menu-toggle__line"></span>
+                    <span class="menu-toggle__line"></span>
+                    <span class="menu-toggle__line"></span>
+                </button>
+                
+                <!-- Navigation (Hidden on mobile by default) -->
+                <nav class="nav" id="mainNav">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="index.html" class="nav__link nav__link--active">Home</a></li>
+                        <li class="nav__item"><a href="pages/about.html" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="pages/services.html" class="nav__link">Services</a></li>
+                        <li class="nav__item"><a href="pages/projects.html" class="nav__link">Projects</a></li>
+                        <li class="nav__item"><a href="pages/insights.html" class="nav__link">Insights</a></li>
+                        <li class="nav__item"><a href="pages/contact.html" class="nav__link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero__background">
+            <img src="assets/images/hero/home-hero.png" alt="Hero Image" class="hero__image">
+            <div class="hero__overlay"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero__content">
+                <h1 class="hero__title">We Engineer the Future of Rail</h1>
+                <p class="hero__subtitle">Delivering safe, compliant, and future-ready railway infrastructure solutions</p>
+            </div>
+            
+            <!-- Carousel/Slider -->
+            <div class="hero__carousel">
+                <button class="carousel__nav carousel__nav--prev" id="carouselPrev" aria-label="Previous">
+                    ‹
+                </button>
+                
+                <div class="carousel__container">
+                    <div class="carousel__track" id="carouselTrack">
+                        
+                        <!-- Slide 1 -->
+                        <div class="carousel__slide carousel__slide--active">
+                            <div class="insight-card">
+                                <img src="assets/images/projects/nuclear-energy.jpg" alt="Nuclear Energy Project" class="insight-card__image">
+                                <div class="insight-card__content">
+                                    <h3 class="insight-card__title">America's Nuclear Energy Moment Is Here — Let's Seize It</h3>
+                                    <a href="#" class="insight-card__link">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M5 15L15 5M15 5H5M15 5V15" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2 (Ejemplo - puedes duplicar) -->
+                        <div class="carousel__slide">
+                            <div class="insight-card">
+                                <img src="assets/images/projects/project-02.jpg" alt="Project 2" class="insight-card__image">
+                                <div class="insight-card__content">
+                                    <h3 class="insight-card__title">Enhancing Railway Safety Across Canada</h3>
+                                    <a href="#" class="insight-card__link">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M5 15L15 5M15 5H5M15 5V15" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <button class="carousel__nav carousel__nav--next" id="carouselNext" aria-label="Next">
+                    ›
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-section__grid">
+                <div class="about-section__content">
+                    <h2 class="section-title">Unlock the Potential of Engineering with Ironwood Infrastructure Inc.</h2>
+                    <p class="about-section__text">
+                        At Ironwood Infrastructure Inc., we specialize in multi-stakeholder railway infrastructure, 
+                        safety, risk and project management solutions. Our expertise spans railway engineering, 
+                        regulatory compliance, grade crossings, bridges, and complex joint infrastructure projects 
+                        regulated by the CTA. Our team is committed to delivering high-quality, customized solutions 
+                        that will meet and exceed your expectations. Explore our website to learn more about our 
+                        services and how we can support your infrastructure projects.
+                    </p>
+                    <a href="pages/about.html" class="btn btn--primary">See What Sets Us Apart</a>
+                </div>
+                <div class="about-section__image">
+                    <!-- Imagen placeholder con ruido rosa -->
+                    <div class="placeholder-image"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title section-title--centered">Services</h2>
+            
+            <div class="services-grid">
+                
+                <!-- Service Card 1 -->
+                <div class="service-card">
+                    <div class="service-card__image">
+                        <div class="placeholder-image"></div>
+                    </div>
+                    <div class="service-card__content">
+                        <p class="service-card__description">"Cuando pasa el mouse se despliega descripción corta"</p>
+                        <h3 class="service-card__title">Project Management</h3>
+                    </div>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="service-card">
+                    <div class="service-card__image">
+                        <div class="placeholder-image"></div>
+                    </div>
+                    <div class="service-card__content">
+                        <p class="service-card__description">"Cuando pasa el mouse se despliega descripción corta"</p>
+                        <h3 class="service-card__title">Grade Crossing Safety</h3>
+                    </div>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="service-card">
+                    <div class="service-card__image">
+                        <div class="placeholder-image"></div>
+                    </div>
+                    <div class="service-card__content">
+                        <p class="service-card__description">"Cuando pasa el mouse se despliega descripción corta"</p>
+                        <h3 class="service-card__title">Training Programs</h3>
+                    </div>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="service-card">
+                    <div class="service-card__image">
+                        <div class="placeholder-image"></div>
+                    </div>
+                    <div class="service-card__content">
+                        <p class="service-card__description">"Cuando pasa el mouse se despliega descripción corta"</p>
+                        <h3 class="service-card__title">Compliance Services</h3>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section class="insights-section">
+        <div class="container">
+            <div class="insights-grid">
+                
+                <!-- Insight 1 -->
+                <article class="insight-article">
+                    <h3 class="insight-article__title">The Oversight of Whistle Cessation at Railway Crossings</h3>
+                    <p class="insight-article__excerpt">
+                        Writing for websites is both simple and complex. On the one hand, all you need to do is 
+                        say what you mean and in your words.
+                    </p>
+                </article>
+                
+                <!-- Insight 2 -->
+                <article class="insight-article">
+                    <h3 class="insight-article__title">A Call to Action for Enhanced Rail Crossing Safety in Canada</h3>
+                    <p class="insight-article__excerpt">
+                        Are you thinking of keywords you should rank for? Are you including links in your text to 
+                        additional information?
+                    </p>
+                </article>
+                
+                <!-- Insight 3 -->
+                <article class="insight-article">
+                    <h3 class="insight-article__title">More insights here</h3>
+                    <p class="insight-article__excerpt">
+                        There's a theory that people read in an F-shape pattern, and that this should influence 
+                        how you structure content on your site.
+                    </p>
+                </article>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <span class="footer__logo">✱ Namedly</span>
+                </div>
+                <nav class="footer__nav">
+                    <a href="#" class="footer__link">Features</a>
+                    <a href="#" class="footer__link">Learn more</a>
+                    <a href="#" class="footer__link">Support</a>
+                </nav>
+                <div class="footer__social">
+                    <a href="#" class="footer__social-link" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 0C7.28 0 6.944.012 5.877.06 4.813.11 4.086.278 3.45.525a4.945 4.945 0 00-1.788 1.163A4.947 4.947 0 00.525 3.45C.278 4.086.11 4.813.06 5.877.012 6.944 0 7.28 0 10s.012 3.056.06 4.123c.05 1.064.218 1.791.465 2.427a4.947 4.947 0 001.163 1.788 4.945 4.945 0 001.788 1.163c.636.247 1.363.415 2.427.465C6.944 19.988 7.28 20 10 20s3.056-.012 4.123-.06c1.064-.05 1.791-.218 2.427-.465a4.947 4.947 0 001.788-1.163 4.945 4.945 0 001.163-1.788c.247-.636.415-1.363.465-2.427.048-1.067.06-1.403.06-4.123s-.012-3.056-.06-4.123c-.05-1.064-.218-1.791-.465-2.427a4.947 4.947 0 00-1.163-1.788A4.945 4.945 0 0016.55.525C15.914.278 15.187.11 14.123.06 13.056.012 12.72 0 10 0zm0 1.802c2.67 0 2.987.01 4.041.058.975.045 1.504.207 1.857.344.467.182.8.399 1.15.748.35.35.566.683.748 1.15.137.353.3.882.344 1.857.048 1.054.058 1.37.058 4.041s-.01 2.987-.058 4.041c-.045.975-.207 1.504-.344 1.857-.182.467-.399.8-.748 1.15-.35.35-.683.566-1.15.748-.353.137-.882.3-1.857.344-1.054.048-1.37.058-4.041.058s-2.987-.01-4.041-.058c-.975-.045-1.504-.207-1.857-.344a3.097 3.097 0 01-1.15-.748 3.098 3.098 0 01-.748-1.15c-.137-.353-.3-.882-.344-1.857-.048-1.054-.058-1.37-.058-4.041s.01-2.987.058-4.041c.045-.975.207-1.504.344-1.857.182-.467.399-.8.748-1.15.35-.35.683-.566 1.15-.748.353-.137.882-.3 1.857-.344 1.054-.048 1.37-.058 4.041-.058z"/>
+                            <path d="M10 13.333a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666zm0-8.468a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm6.538-.203a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M18.571 0H1.43A1.43 1.43 0 000 1.429v17.142A1.43 1.43 0 001.429 20h17.142A1.43 1.43 0 0020 18.571V1.43A1.43 1.43 0 0018.571 0zM6.071 17.143H3.214V7.857h2.857v9.286zM4.643 6.571a1.643 1.643 0 110-3.285 1.643 1.643 0 010 3.285zm12.5 10.572h-2.857v-4.524c0-1.075-.022-2.46-1.496-2.46-1.5 0-1.729 1.171-1.729 2.381v4.603h-2.857V7.857h2.738v1.271h.04c.381-.723 1.313-1.486 2.702-1.486 2.89 0 3.426 1.903 3.426 4.375v5.126h.033z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="Twitter">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M6.29 18.25c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/carousel.js"></script>
+    
+</body>
+</html>
