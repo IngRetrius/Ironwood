@@ -9,7 +9,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- CSS Files -->
     <link rel="stylesheet" href="assets/css/variables.css">
@@ -27,12 +27,9 @@
     <header class="header">
         <div class="container">
             <div class="header__content">
-                <!-- Logo -->
+                <!-- Logo with SVG -->
                 <a href="index.html" class="logo">
-                    <div class="logo__icon">
-                        <span class="logo__circle logo__circle--orange"></span>
-                        <span class="logo__circle logo__circle--black"></span>
-                    </div>
+                    <img src="assets/images/logo-ironwood.svg" alt="Ironwood Infrastructure" class="logo__svg">
                     <div class="logo__text">
                         <span class="logo__brand">IRONWOOD</span>
                         <span class="logo__subtitle">Infrastructure</span>
@@ -62,135 +59,91 @@
     </header>
 
     <!-- ============================================
-         HERO SECTION
+         HERO SECTION - 3 TABS WITH DIFFERENT IMAGES
          ============================================ -->
-    <section class="hero">
+    <section class="hero hero--tabbed" id="heroSection">
+        <!-- Background Images for each tab -->
         <div class="hero__background">
-            <img src="assets/images/hero/home-hero.png" alt="Railway bridge infrastructure" class="hero__image">
+            <img src="assets/images/hero/home-hero.png" alt="Grade Crossing Safety" class="hero__image" data-tab="grade-crossing">
+            <img src="assets/images/hero/home-hero2.png" alt="Project Support" class="hero__image" data-tab="project-support">
+            <img src="assets/images/hero/home-hero3.png" alt="Training Programs" class="hero__image" data-tab="training">
             <div class="hero__overlay"></div>
         </div>
         
         <div class="container">
-            <!-- Hero Content (Left) -->
             <div class="hero__content">
-                <h1 class="hero__title">We Engineer the Future of Rail</h1>
-                <p class="hero__subtitle">Delivering safe, compliant, and future-ready railway infrastructure solutions</p>
-            </div>
-            
-            <!-- Hero Carousel (Right) - Stacked Cards -->
-            <div class="hero__carousel">
-                <button class="carousel__nav carousel__nav--prev" id="carouselPrev" aria-label="Previous">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                </button>
+                <!-- Dynamic Title -->
+                <h1 class="hero__title" id="heroTitle">Expert Crossing Solutions</h1>
                 
-                <div class="carousel__container">
-                    <div class="carousel__track" id="carouselTrack">
-                        
-                        <!-- Slide 1 -->
-                        <div class="carousel__slide carousel__slide--active">
-                            <div class="insight-card">
-                                <img src="assets/images/projects/nuclear-energy.jpg" alt="Nuclear Energy Project" class="insight-card__image">
-                                <div class="insight-card__content">
-                                    <h3 class="insight-card__title">America's Nuclear Energy Moment Is Here</h3>
-
-                                    <!-- Pager: dots + progress bar -->
-                                    <div class="insight-card__pager" data-slide-index="0" aria-hidden="false">
-                                        <div class="pager__dots" aria-hidden="true">
-                                            <span class="pager__dot"></span>
-                                            <span class="pager__dot"></span>
-                                            <span class="pager__dot"></span>
-                                        </div>
-                                        <div class="pager__progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                                            <div class="pager__progress-fill"></div>
-                                        </div>
-                                    </div>
-
-                                    <a href="#" class="insight-card__link" aria-label="Read more">
-                                        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M5 15L15 5M15 5H5M15 5V15"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Slide 2 -->
-                        <div class="carousel__slide">
-                            <div class="insight-card">
-                                <img src="assets/images/projects/project-02.jpg" alt="Railway Safety Project" class="insight-card__image">
-                                <div class="insight-card__content">
-                                    <h3 class="insight-card__title">Enhancing Railway Safety Across Canada</h3>
-
-                                    <!-- Pager -->
-                                    <div class="insight-card__pager" data-slide-index="1" aria-hidden="true">
-                                        <div class="pager__dots" aria-hidden="true">
-                                            <span class="pager__dot"></span>
-                                            <span class="pager__dot"></span>
-                                            <span class="pager__dot"></span>
-                                        </div>
-                                        <div class="pager__progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                                            <div class="pager__progress-fill"></div>
-                                        </div>
-                                    </div>
-
-                                    <a href="#" class="insight-card__link" aria-label="Read more">
-                                        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M5 15L15 5M15 5H5M15 5V15"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Slide 3 -->
-                        <div class="carousel__slide">
-                            <div class="insight-card">
-                                <img src="assets/images/projects/project-03.jpg" alt="Infrastructure Project" class="insight-card__image">
-                                <div class="insight-card__content">
-                                    <h3 class="insight-card__title">Modern Rail Infrastructure Solutions</h3>
-
-                                    <!-- Pager -->
-                                    <div class="insight-card__pager" data-slide-index="2" aria-hidden="true">
-                                        <div class="pager__dots" aria-hidden="true">
-                                            <span class="pager__dot"></span>
-                                            <span class="pager__dot"></span>
-                                            <span class="pager__dot"></span>
-                                        </div>
-                                        <div class="pager__progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                                            <div class="pager__progress-fill"></div>
-                                        </div>
-                                    </div>
-
-                                    <a href="#" class="insight-card__link" aria-label="Read more">
-                                        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M5 15L15 5M15 5H5M15 5V15"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Ghost Slide: carta vacía para reforzar apilamiento (no interactiva) -->
-                        <div class="carousel__slide carousel__slide--ghost" aria-hidden="true" role="presentation"></div>
-                        
+                <!-- Tab Content -->
+                <div class="hero__tab-content">
+                    
+                    <!-- Tab 1: Grade Crossing -->
+                    <div class="hero__tab-pane active" data-tab="grade-crossing">
+                        <p class="hero__subtitle">Ensuring safer crossings through expert analysis and comprehensive compliance solutions</p>
+                        <a href="pages/services.html#grade-crossing" class="btn btn--hero">
+                            Crossing Solutions
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
                     </div>
+                    
+                    <!-- Tab 2: Project Support -->
+                    <div class="hero__tab-pane" data-tab="project-support">
+                        <p class="hero__subtitle">End-to-end railway infrastructure management from planning through commissioning</p>
+                        <a href="pages/services.html#project-support" class="btn btn--hero">
+                            Our Services
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <!-- Tab 3: Training -->
+                    <div class="hero__tab-pane" data-tab="training">
+                        <p class="hero__subtitle">Expert-led programs in railway safety, compliance, and regulations</p>
+                        <a href="pages/services.html#training" class="btn btn--hero">
+                            Training Programs
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
                 </div>
                 
-                <button class="carousel__nav carousel__nav--next" id="carouselNext" aria-label="Next">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </button>
+                <!-- Tabs Navigation - 3 Tabs -->
+                <div class="hero__tabs">
+                    <button class="hero__tab active" data-tab="grade-crossing" data-title="Expert Crossing Solutions">
+                        <span class="hero__tab-line"></span>
+                        <span class="hero__tab-text">Grade Crossing</span>
+                    </button>
+                    <button class="hero__tab" data-tab="project-support" data-title="Comprehensive Project Excellence">
+                        <span class="hero__tab-line"></span>
+                        <span class="hero__tab-text">Project Support</span>
+                    </button>
+                    <button class="hero__tab" data-tab="training" data-title="Knowledge-Driven Safety">
+                        <span class="hero__tab-line"></span>
+                        <span class="hero__tab-text">Training</span>
+                    </button>
+                </div>
             </div>
         </div>
+        
+        <!-- Pause Button -->
+        <button class="hero__pause" id="heroPause" aria-label="Pause slideshow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="6" y="4" width="4" height="16" rx="1"/>
+                <rect x="14" y="4" width="4" height="16" rx="1"/>
+            </svg>
+        </button>
     </section>
 
     <!-- ============================================
-         ABOUT SECTION
+         ABOUT SECTION - WHITE BACKGROUND
          ============================================ -->
-    <section class="about-section">
+    <section class="about-section about-section--white">
         <div class="container">
             <div class="about-section__grid">
                 <div class="about-section__content">
@@ -206,122 +159,8 @@
                     <a href="pages/about.html" class="btn btn--primary">See What Sets Us Apart</a>
                 </div>
                 <div class="about-section__image">
-                    <div class="placeholder-image"></div>
+                    <div class="placeholder-image placeholder-image--pink"></div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-         SERVICES SECTION (CAROUSEL - LEFT ALIGNED)
-         ============================================ -->
-    <section class="services-section">
-        <div class="container">
-            <h2 class="section-title">Services</h2>
-            
-            <div class="services-carousel">
-                <div class="services-carousel__container">
-                    <div class="services-carousel__track" id="servicesCarouselTrack">
-                        
-                        <!-- Service Card 1 -->
-                        <div class="service-card">
-                            <div class="service-card__image">
-                                <div class="placeholder-image"></div>
-                                <span class="service-card__label">CONSULTING</span>
-                                <div class="service-card__overlay">
-                                    <p class="service-card__description">Comprehensive project oversight ensuring timely delivery and regulatory compliance for complex railway infrastructure initiatives.</p>
-                                </div>
-                            </div>
-                            <div class="service-card__content">
-                                <h3 class="service-card__title">Project Management</h3>
-                                <a href="#" class="service-card__arrow" aria-label="Learn more">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M5 15L15 5M15 5H5M15 5V15"/>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- Service Card 2 -->
-                        <div class="service-card">
-                            <div class="service-card__image">
-                                <div class="placeholder-image"></div>
-                                <span class="service-card__label">SAFETY</span>
-                                <div class="service-card__overlay">
-                                    <p class="service-card__description">Expert analysis and solutions for railway crossing safety, compliance, and risk mitigation across Canada.</p>
-                                </div>
-                            </div>
-                            <div class="service-card__content">
-                                <h3 class="service-card__title">Grade Crossing Safety</h3>
-                                <a href="#" class="service-card__arrow" aria-label="Learn more">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M5 15L15 5M15 5H5M15 5V15"/>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- Service Card 3 -->
-                        <div class="service-card">
-                            <div class="service-card__image">
-                                <div class="placeholder-image"></div>
-                                <span class="service-card__label">TRAINING</span>
-                                <div class="service-card__overlay">
-                                    <p class="service-card__description">Specialized training programs for railway professionals covering safety protocols and regulatory requirements.</p>
-                                </div>
-                            </div>
-                            <div class="service-card__content">
-                                <h3 class="service-card__title">Training Programs</h3>
-                                <a href="#" class="service-card__arrow" aria-label="Learn more">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M5 15L15 5M15 5H5M15 5V15"/>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- Service Card 4 -->
-                        <div class="service-card">
-                            <div class="service-card__image">
-                                <div class="placeholder-image"></div>
-                                <span class="service-card__label">COMPLIANCE</span>
-                                <div class="service-card__overlay">
-                                    <p class="service-card__description">Ensuring full adherence to CTA regulations and industry standards for railway infrastructure projects.</p>
-                                </div>
-                            </div>
-                            <div class="service-card__content">
-                                <h3 class="service-card__title">Compliance Services</h3>
-                                <a href="#" class="service-card__arrow" aria-label="Learn more">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M5 15L15 5M15 5H5M15 5V15"/>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Service Card 5 -->
-                        <div class="service-card">
-                            <div class="service-card__image">
-                                <div class="placeholder-image"></div>
-                                <span class="service-card__label">ENGINEERING</span>
-                                <div class="service-card__overlay">
-                                    <p class="service-card__description">Advanced engineering solutions for bridges and complex railway infrastructure systems.</p>
-                                </div>
-                            </div>
-                            <div class="service-card__content">
-                                <h3 class="service-card__title">Bridge Engineering</h3>
-                                <a href="#" class="service-card__arrow" aria-label="Learn more">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M5 15L15 5M15 5H5M15 5V15"/>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                
-                <!-- Controls added by JavaScript -->
             </div>
         </div>
     </section>
@@ -375,10 +214,7 @@
                 <div class="footer__brand">
                     <!-- Logo -->
                     <div class="footer__logo">
-                        <div class="footer__logo-icon">
-                            <span class="footer__logo-circle footer__logo-circle--orange"></span>
-                            <span class="footer__logo-circle footer__logo-circle--white"></span>
-                        </div>
+                        <img src="assets/images/logo-ironwood.svg" alt="Ironwood Infrastructure" class="footer__logo-svg">
                         <div class="footer__logo-text">
                             <span class="footer__logo-brand">IRONWOOD</span>
                             <span class="footer__logo-subtitle">Infrastructure Inc.</span>
@@ -444,8 +280,7 @@
 
     <!-- JavaScript Files -->
     <script src="assets/js/navigation.js"></script>
-    <script src="assets/js/carousel.js"></script>
-    <script src="assets/js/services-carousel.js"></script>
+    <script src="assets/js/hero-tabs.js"></script>
     
 </body>
 </html>

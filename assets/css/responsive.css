@@ -1,5 +1,5 @@
 /* ========================================
-   RESPONSIVE DESIGN - IRONWOOD
+   RESPONSIVE DESIGN - IRONWOOD OPTIMIZED
    ======================================== */
 
 /* ==================
@@ -9,6 +9,7 @@
 @media (max-width: 1024px) {
     :root {
         --container-padding: 1.25rem;
+        --header-height: 90px;
     }
     
     /* Header */
@@ -16,28 +17,38 @@
         padding: 0 var(--spacing-lg);
     }
     
-    /* Hero - Stack on tablet */
-    .hero .container {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-3xl);
+    .logo__svg {
+        width: 44px;
+        height: 44px;
     }
     
-    .hero__carousel {
-        max-width: 400px;
-        justify-self: center;
+    .logo__brand {
+        font-size: 20px;
     }
     
+    .logo__subtitle {
+        font-size: 11px;
+    }
+    
+    /* Hero */
     .hero__content {
         max-width: 100%;
-        text-align: center;
     }
     
-    .carousel__nav--prev {
-        left: -55px;
+    .hero__title {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
     }
     
-    .carousel__nav--next {
-        right: -55px;
+    .hero__subtitle {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+    }
+    
+    .hero__tabs {
+        gap: var(--spacing-xl);
+    }
+    
+    .hero__tab-line {
+        width: 120px;
     }
     
     /* About Section */
@@ -59,15 +70,19 @@
         gap: var(--spacing-2xl);
     }
     
-    /* Services */
-    .services-section {
-        padding: var(--spacing-4xl) 0;
-    }
-    
     /* Footer */
     .footer__grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-2xl);
+    }
+    
+    .footer__logo-svg {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .footer__logo-brand {
+        font-size: 20px;
     }
 }
 
@@ -77,7 +92,21 @@
 
 @media (max-width: 768px) {
     :root {
-        --header-height: 70px;
+        --header-height: 80px;
+    }
+    
+    /* Header */
+    .logo__svg {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo__brand {
+        font-size: 18px;
+    }
+    
+    .logo__subtitle {
+        font-size: 10px;
     }
     
     /* Hero */
@@ -86,36 +115,49 @@
         padding: calc(var(--header-height) + var(--spacing-3xl)) 0 var(--spacing-4xl);
     }
     
-    .hero .container {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-2xl);
-    }
-    
     .hero__content {
-        margin-bottom: 0;
         text-align: left;
     }
     
     .hero__title {
-        font-size: clamp(2rem, 7vw, 3rem);
-        margin-bottom: var(--spacing-md);
+        font-size: clamp(2.25rem, 7vw, 3.5rem);
+        margin-bottom: var(--spacing-lg);
     }
     
     .hero__subtitle {
-        font-size: var(--font-size-base);
+        font-size: clamp(0.9375rem, 2vw, 1.125rem);
     }
     
-    .hero__carousel {
-        max-width: 100%;
-        order: 2;
+    /* TABS APILADOS VERTICALMENTE */
+    .hero__tabs {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-3xl);
     }
     
-    .carousel__nav--prev {
-        left: -50px;
+    .hero__tab {
+        width: 100%;
+        align-items: flex-start;
     }
     
-    .carousel__nav--next {
-        right: -50px;
+    .hero__tab-line {
+        width: 100%;
+        max-width: 220px;
+        height: 3px;
+    }
+    
+    .hero__tab-text {
+        font-size: 15px;
+    }
+    
+    .hero__tab-content {
+        min-height: 220px;
+    }
+    
+    .btn--hero {
+        padding: 14px 32px;
+        font-size: 1rem;
     }
     
     /* About Section */
@@ -135,19 +177,6 @@
     
     .about-section__text {
         font-size: var(--font-size-base);
-    }
-    
-    /* Services Section */
-    .services-section {
-        padding: var(--spacing-3xl) 0;
-    }
-    
-    .service-card__image {
-        height: 250px;
-    }
-    
-    .service-card__title {
-        font-size: var(--font-size-lg);
     }
     
     /* Insights Section */
@@ -181,6 +210,15 @@
     .footer__info-item {
         font-size: var(--font-size-sm);
     }
+    
+    .footer__logo-svg {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .footer__logo-brand {
+        font-size: 18px;
+    }
 }
 
 /* ==================
@@ -190,12 +228,21 @@
 @media (max-width: 480px) {
     :root {
         --container-padding: 1rem;
+        --header-height: 70px;
     }
     
     /* Header */
     .header__content {
         padding: 0 var(--spacing-md);
-        height: calc(var(--header-height) - 10px);
+    }
+    
+    .logo {
+        gap: 12px;
+    }
+    
+    .logo__svg {
+        width: 36px;
+        height: 36px;
     }
     
     .logo__brand {
@@ -203,7 +250,7 @@
     }
     
     .logo__subtitle {
-        font-size: 10px;
+        font-size: 9px;
     }
     
     .menu-toggle {
@@ -227,46 +274,43 @@
     }
     
     .hero__title {
-        font-size: clamp(1.75rem, 8vw, 2.5rem);
+        font-size: clamp(2rem, 8vw, 3rem);
     }
     
     .hero__subtitle {
-        font-size: 15px;
+        font-size: 0.9375rem;
+        line-height: 1.5;
     }
     
-    .hero__carousel {
-        padding: 0;
+    .hero__tabs {
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-2xl);
     }
     
-    .carousel__nav {
-        width: 36px;
-        height: 36px;
-        border-width: 1.5px;
+    .hero__tab-line {
+        max-width: 180px;
+        height: 3px;
     }
     
-    .carousel__nav--prev {
-        left: -45px;
+    .hero__tab-text {
+        font-size: 14px;
     }
     
-    .carousel__nav--next {
-        right: -45px;
+    .hero__pause {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
     }
     
-    .insight-card__image {
-        height: 180px;
+    .hero__pause svg {
+        width: 20px;
+        height: 20px;
     }
     
-    .insight-card__content {
-        padding: var(--spacing-md);
-    }
-    
-    .insight-card__title {
-        font-size: var(--font-size-sm);
-    }
-    
-    .insight-card__link {
-        width: 32px;
-        height: 32px;
+    .btn--hero {
+        padding: 12px 28px;
+        font-size: 0.9375rem;
     }
     
     /* About Section */
@@ -285,61 +329,6 @@
     .section-title {
         margin-bottom: var(--spacing-lg);
         font-size: clamp(1.5rem, 5vw, 2rem);
-    }
-    
-    /* Services */
-    .services-section {
-        padding: var(--spacing-2xl) 0;
-    }
-    
-    .services-carousel {
-        margin-top: var(--spacing-2xl);
-    }
-    
-    .services-carousel__controls {
-        gap: var(--spacing-sm);
-        margin-top: var(--spacing-lg);
-    }
-    
-    .services-carousel__nav {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .services-carousel__progress {
-        width: 80px;
-    }
-    
-    .services-carousel__pagination {
-        font-size: 11px;
-    }
-    
-    .service-card__image {
-        height: 200px;
-    }
-    
-    .service-card__content {
-        padding: var(--spacing-lg);
-    }
-    
-    .service-card__title {
-        font-size: var(--font-size-base);
-    }
-    
-    .service-card__description {
-        font-size: var(--font-size-sm);
-    }
-    
-    .service-card__label {
-        font-size: 10px;
-        padding: 4px 8px;
-    }
-    
-    .service-card__arrow {
-        width: 36px;
-        height: 36px;
-        bottom: var(--spacing-md);
-        right: var(--spacing-md);
     }
     
     /* Insights */
@@ -374,8 +363,21 @@
         padding: var(--spacing-xl) 0;
     }
     
+    .footer__logo {
+        gap: 12px;
+    }
+    
+    .footer__logo-svg {
+        width: 36px;
+        height: 36px;
+    }
+    
     .footer__logo-brand {
-        font-size: 18px;
+        font-size: 16px;
+    }
+    
+    .footer__logo-subtitle {
+        font-size: 11px;
     }
     
     .footer__info-item {
@@ -399,34 +401,23 @@
 
 @media (max-width: 360px) {
     .hero__title {
-        font-size: 1.5rem;
+        font-size: 1.75rem;
     }
     
     .hero__subtitle {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
     
-    .services-carousel__controls {
-        flex-wrap: wrap;
+    .hero__tabs {
+        gap: var(--spacing-sm);
     }
     
-    .services-carousel__progress {
-        order: 3;
-        width: 100%;
-        margin-top: var(--spacing-sm);
+    .hero__tab-line {
+        max-width: 150px;
     }
     
-    .carousel__nav {
-        width: 32px;
-        height: 32px;
-    }
-    
-    .carousel__nav--prev {
-        left: -40px;
-    }
-    
-    .carousel__nav--next {
-        right: -40px;
+    .hero__tab-text {
+        font-size: 13px;
     }
     
     .nav {

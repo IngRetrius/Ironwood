@@ -1,5 +1,5 @@
 /* ========================================
-   COMPONENTS STYLES - IRONWOOD DESIGN
+   COMPONENTS STYLES - IRONWOOD OPTIMIZED
    ======================================== */
 
 /* ==================
@@ -10,6 +10,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 12px;
     padding: 14px 32px;
     font-family: var(--font-secondary);
     font-size: var(--font-size-base);
@@ -43,546 +44,248 @@
     box-shadow: var(--shadow-lg);
 }
 
-/* ==================
-   HERO CAROUSEL - STACKED CARDS DESIGN
-   ================== */
-
-.hero__carousel {
-    position: relative;
-    width: 100%;
-    max-width: 380px;
-    justify-self: end;
-    perspective: 1000px;
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-}
-
-.carousel__container {
-    position: relative;
-    overflow: visible;
-    border-radius: var(--border-radius-lg);
-}
-
-.carousel__track {
-    display: flex;
-    position: relative;
-    transform: translateX(0);
-    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
-    height: auto;
-}
-
-/* Slides ahora son elementos fluidos dentro del track */
-.hero__carousel .carousel__slide {
-    position: relative;
-    width: 100%;
-    min-width: 100%;
-    opacity: 1;
-    pointer-events: auto;
-    transform: none;
-    transition: none;
-    display: block;
-    box-sizing: border-box;
-    padding: 0; /* deja que el contenido controle el padding */
-}
-
-/* Mantener el ghost slide al final si existe, pero que participe como slide (opcional) */
-.hero__carousel .carousel__slide--ghost {
-    /* Si prefieres excluir la ghost del loop, manejalo desde JS; aquí queda visual */
-    background: var(--color-white);
-    border-radius: var(--border-radius-lg);
-    box-shadow: 0 12px 44px rgba(0,0,0,0.12);
-}
-
-/* Navigation arrows - icon-only, sin fondo (visibles) */
-.carousel__nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: transparent;       /* sin fondo */
-    border: none;                  /* sin borde */
-    color: var(--color-white);     /* icon color (visible sobre el hero) */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 30;
-    transition: transform var(--transition-base), color var(--transition-base);
-    filter: drop-shadow(0 6px 18px rgba(0,0,0,0.35));
-}
-
-/* Asegura que el SVG use currentColor */
-.carousel__nav svg { stroke: currentColor; fill: none; width: 20px; height: 20px; }
-
-.carousel__nav:hover:not(:disabled) {
-    transform: translateY(-50%) scale(1.06);
-    color: var(--color-primary);
-}
-
-.carousel__nav:disabled {
-    opacity: 0.35;
-    cursor: not-allowed;
-}
-
-/* Acomodar posición de flechas fuera del contenedor (ajusta offsets si hace falta) */
-.carousel__nav--prev { left: -54px; }
-.carousel__nav--next { right: -54px; }
-
-/* Insight card: título arriba, pager abajo (columna) */
-.insight-card {
-    background: var(--color-white);
-    border-radius: var(--border-radius-lg);
-    overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.14);
-    transition: all var(--transition-base);
-    position: relative; /* para posicionar la flecha circular dentro */
-    min-height: 320px;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Contenido: columna para que el título quede encima del pager */
-.insight-card__content {
-    padding: var(--spacing-lg);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex: 1;
-}
-
-/* Ajuste del título (queda encima del timer) */
-.insight-card__title {
-    margin: 0 0 6px 0;
-}
-
-/* Pager (dots + progress) se mantiene debajo del título */
-.insight-card__pager {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-/* Flecha circular "leer más" posicionada en la esquina inferior derecha de la card */
-.insight-card__link {
-    position: absolute;
-    bottom: 18px;
-    right: 18px;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    transition: transform var(--transition-base), background-color var(--transition-base);
-}
-
-.insight-card__link:hover {
-    transform: scale(1.06) rotate(10deg);
-    background-color: var(--color-primary-dark);
-}
-
-/* Pager styles (sin cambios funcionales) */
-.pager__dots { display:flex; gap:8px; align-items:center; }
-.pager__dot { width:8px; height:8px; border-radius:50%; background: rgba(0,0,0,0.12); }
-.pager__dot.active { background: var(--color-primary); transform: scale(1.1); }
-.pager__progress { flex:1; max-width:180px; height:6px; background:var(--color-gray-200); border-radius:9999px; overflow:hidden; position:relative; }
-.pager__progress-fill { position:absolute; left:0; top:0; height:100%; width:0%; background:var(--color-primary); transition:width 120ms linear; }
-
-/* ==================
-   SERVICES CAROUSEL - LEFT ALIGNED
-   ================== */
-
-.services-carousel {
-    position: relative;
-    margin-top: var(--spacing-3xl);
-    padding-left: 0;
-}
-
-.services-carousel__container {
-    overflow: hidden;
-    padding: var(--spacing-md) 0 var(--spacing-3xl);
-}
-
-.services-carousel__track {
-    display: flex;
-    gap: var(--spacing-xl);
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Navigation Controls - Bottom Style */
-.services-carousel__controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-xl);
-    margin-top: var(--spacing-2xl);
-}
-
-.services-carousel__nav {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--color-primary);
-    border: none;
-    color: var(--color-white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all var(--transition-base);
-    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
-}
-
-.services-carousel__nav:hover:not(:disabled) {
-    background: var(--color-primary-dark);
-    transform: scale(1.08);
-    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.4);
-}
-
-.services-carousel__nav:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-    background: var(--color-gray-300);
-    box-shadow: none;
-}
-
-/* Progress Bar */
-.services-carousel__progress {
-    position: relative;
-    width: 200px;
-    height: 4px;
-    background: var(--color-gray-200);
-    border-radius: var(--border-radius-full);
-    overflow: hidden;
-}
-
-.services-carousel__progress-bar {
-    height: 100%;
-    background: var(--color-primary);
-    border-radius: var(--border-radius-full);
-    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Pagination Text */
-.services-carousel__pagination {
-    font-family: var(--font-secondary);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-gray-700);
-}
-
-/* ==================
-   SERVICE CARD
-   ================== */
-
-.service-card {
-    min-width: calc(33.333% - 21px);
-    flex-shrink: 0;
-    background: var(--color-white);
-    border-radius: var(--border-radius-lg);
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-}
-
-.service-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-}
-
-.service-card__image {
-    position: relative;
-    width: 100%;
-    height: 320px;
-    overflow: hidden;
-}
-
-.service-card__image::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    background: linear-gradient(to top, rgba(30, 58, 95, 0.7), transparent);
-}
-
-.service-card__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(30, 58, 95, 0.95);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--spacing-xl);
-    opacity: 0;
-    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 2;
-}
-
-.service-card:hover .service-card__overlay {
-    opacity: 1;
-}
-
-.service-card__description {
-    color: var(--color-white);
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-relaxed);
-    text-align: center;
-    font-weight: var(--font-weight-normal);
-}
-
-.service-card__content {
-    padding: var(--spacing-xl);
-    background: var(--color-white);
-    position: relative;
-}
-
-/* Label de categoría */
-.service-card__label {
-    position: absolute;
-    top: var(--spacing-lg);
-    left: var(--spacing-lg);
-    background: var(--color-accent);
+.btn--hero {
+    background-color: var(--color-white);
     color: var(--color-secondary);
-    font-family: var(--font-secondary);
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-bold);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 6px 12px;
-    border-radius: var(--border-radius-sm);
-    z-index: 3;
+    padding: 18px 44px;
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-semibold);
+    border-radius: 50px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
 }
 
-.service-card__title {
-    font-family: var(--font-primary);
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text-primary);
-    margin: 0;
-    line-height: 1.3;
+.btn--hero:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
 }
 
-/* Arrow Link Icon */
-.service-card__arrow {
-    position: absolute;
-    bottom: var(--spacing-lg);
-    right: var(--spacing-lg);
-    width: 48px;
-    height: 48px;
-    background: var(--color-primary);
-    border-radius: 50%;
+.btn--hero svg {
+    transition: transform var(--transition-base);
+}
+
+.btn--hero:hover svg {
+    transform: translateX(5px);
+}
+
+/* ==================
+   HERO TABS - LÍNEAS MÁS GRANDES
+   ================== */
+
+.hero__tabs {
     display: flex;
+    gap: var(--spacing-4xl);
+    margin-top: var(--spacing-4xl);
+    justify-content: flex-start;
     align-items: center;
-    justify-content: center;
-    color: var(--color-white);
+}
+
+.hero__tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all var(--transition-base);
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.hero__tab:hover {
+    opacity: 0.8;
+}
+
+/* LÍNEAS MÁS GRANDES */
+.hero__tab-line {
+    width: 200px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 3px;
     transition: all var(--transition-base);
 }
 
-.service-card:hover .service-card__arrow {
-    transform: scale(1.12) rotate(45deg);
-    background: var(--color-primary-dark);
+.hero__tab.active .hero__tab-line {
+    background: var(--color-white);
+    box-shadow: 0 3px 15px rgba(255, 255, 255, 0.4);
 }
 
-/* Pager (dots + progress bar) inside insight-card */
-.insight-card__pager {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 12px;
-    width: 100%;
+.hero__tab-text {
+    font-family: var(--font-secondary);
+    font-size: 17px;
+    font-weight: var(--font-weight-medium);
+    color: rgba(255, 255, 255, 0.65);
+    transition: color var(--transition-base);
+    white-space: nowrap;
+    letter-spacing: 0.01em;
 }
 
-/* small dots */
-.pager__dots {
-    display: flex;
-    gap: 8px;
-    align-items: center;
+.hero__tab.active .hero__tab-text {
+    color: var(--color-white);
+    font-weight: var(--font-weight-semibold);
 }
 
-.pager__dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.12);
-    transition: transform 260ms ease, background 260ms ease;
-}
-
-.pager__dot.active {
-    background: #ef4444; /* rojo activo (puedes ajustar) */
-    transform: scale(1.15);
-}
-
-/* progress bar track */
-.pager__progress {
-    flex: 1;
-    max-width: 180px;
-    height: 6px;
-    background: var(--color-gray-200);
-    border-radius: 9999px;
-    overflow: hidden;
+/* Hero Tab Content */
+.hero__tab-content {
     position: relative;
+    min-height: 240px;
 }
 
-/* fill */
-.pager__progress-fill {
+.hero__tab-pane {
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 0%;
-    background: #ef4444; /* color de progreso */
-    border-radius: 9999px;
-    transition: width 120ms linear;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease-in-out;
 }
 
-/* Make sure pager looks good on smaller viewports */
-@media (max-width: 768px) {
-    .insight-card__pager {
-        gap: 8px;
-    }
-    .pager__progress {
-        max-width: 140px;
-    }
+.hero__tab-pane.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+}
+
+/* Hero Pause Button */
+.hero__pause {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    z-index: 10;
+}
+
+.hero__pause:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.08);
+}
+
+.hero__pause svg {
+    color: var(--color-white);
+}
+
+.hero__pause.paused svg rect:first-child {
+    transform: translateX(-2px);
+}
+
+.hero__pause.paused svg rect:last-child {
+    transform: translateX(2px);
 }
 
 /* ==================
    RESPONSIVE ADJUSTMENTS
    ================== */
 
+@media (max-width: 1200px) {
+    .hero__tabs {
+        gap: var(--spacing-3xl);
+    }
+    
+    .hero__tab-line {
+        width: 180px;
+    }
+    
+    .hero__tab-text {
+        font-size: 16px;
+    }
+}
+
 @media (max-width: 1024px) {
-    .service-card {
-        min-width: calc(50% - 16px);
+    .hero__tabs {
+        gap: var(--spacing-2xl);
     }
     
-    .hero__carousel {
-        max-width: 340px;
+    .hero__tab-line {
+        width: 160px;
+        height: 4px;
     }
     
-    .carousel__nav--prev {
-        left: -50px;
+    .hero__tab-text {
+        font-size: 15px;
     }
     
-    .carousel__nav--next {
-        right: -50px;
+    .btn--hero {
+        padding: 16px 38px;
+        font-size: 1.0625rem;
     }
 }
 
 @media (max-width: 768px) {
-    .service-card {
-        min-width: 100%;
+    /* TABS APILADOS VERTICALMENTE EN MOBILE */
+    .hero__tabs {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-3xl);
     }
     
-    .services-carousel__nav {
-        width: 44px;
-        height: 44px;
+    .hero__tab {
+        width: 100%;
+        align-items: flex-start;
+        gap: 12px;
     }
     
-    .services-carousel__progress {
-        width: 120px;
+    .hero__tab-line {
+        width: 100%;
+        max-width: 250px;
+        height: 4px;
     }
     
-    .service-card__image {
-        height: 250px;
+    .hero__tab-text {
+        font-size: 16px;
     }
     
-    .service-card__title {
-        font-size: var(--font-size-lg);
+    .hero__tab-content {
+        min-height: 220px;
     }
     
-    .hero__carousel {
-        max-width: 100%;
-    }
-    
-    .carousel__nav {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .carousel__nav--prev {
-        left: -50px;
-    }
-    
-    .carousel__nav--next {
-        right: -50px;
-    }
-    
-    .insight-card__image {
-        height: 200px;
+    .btn--hero {
+        padding: 14px 32px;
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .services-carousel__controls {
+    .hero__tabs {
         gap: var(--spacing-md);
+        margin-top: var(--spacing-2xl);
     }
     
-    .services-carousel__nav {
+    .hero__tab-line {
+        max-width: 200px;
+        height: 4px;
+    }
+    
+    .hero__tab-text {
+        font-size: 15px;
+    }
+    
+    .btn--hero {
+        padding: 12px 28px;
+        font-size: 0.9375rem;
+    }
+    
+    .hero__pause {
         width: 40px;
         height: 40px;
+        bottom: 20px;
+        right: 20px;
     }
     
-    .services-carousel__progress {
-        width: 100px;
-    }
-    
-    .service-card__image {
-        height: 220px;
-    }
-    
-    .service-card__content {
-        padding: var(--spacing-lg);
-    }
-    
-    .service-card__title {
-        font-size: var(--font-size-base);
-    }
-    
-    .service-card__description {
-        font-size: var(--font-size-sm);
-    }
-    
-    .service-card__arrow {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .carousel__nav {
-        width: 36px;
-        height: 36px;
-    }
-    
-    .carousel__nav--prev {
-        left: -45px;
-    }
-    
-    .carousel__nav--next {
-        right: -45px;
-    }
-    
-    .insight-card__content {
-        padding: var(--spacing-md);
-    }
-    
-    .insight-card__title {
-        font-size: var(--font-size-sm);
-    }
-    
-    .btn {
-        padding: 12px 24px;
-        font-size: var(--font-size-sm);
+    .hero__pause svg {
+        width: 20px;
+        height: 20px;
     }
 }
