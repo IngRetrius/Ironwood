@@ -64,9 +64,15 @@
 }
 
 .btn--secondary:hover {
-    background-color: var(--color-primary-dark);
+    /* Avoid changing background-color on hover to prevent adjacent white areas
+       from appearing orange (visual issue). Keep a subtle elevation and border
+       for hover feedback instead. */
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
+    /* Add a faint inset border to increase contrast without changing background */
+    box-shadow: var(--shadow-lg), inset 0 0 0 1px rgba(255,255,255,0.06);
+    /* Ensure link color stays white (override global a:hover) */
+    color: var(--color-white);
 }
 
 .btn--secondary:active {
