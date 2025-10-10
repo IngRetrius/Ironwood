@@ -1,6 +1,6 @@
 /**
  * ========================================
- * NAVIGATION SCRIPT - UPDATED
+ * NAVIGATION SCRIPT - ENHANCED VERSION
  * ========================================
  * 
  * Features:
@@ -9,8 +9,10 @@
  * - Smooth scrolling for anchor links
  * - Active nav link on scroll
  * - Close menu on outside click
+ * - Enhanced accessibility
+ * - Focus trap in mobile menu
  * 
- * @version 2.0.0
+ * @version 3.0.0
  */
 
 (function() {
@@ -35,6 +37,53 @@
         overlay = document.createElement('div');
         overlay.className = 'nav-overlay';
         body.appendChild(overlay);
+    }
+    
+    // ==========================================
+    // FOCUS TRAP
+    // ==========================================
+    
+    let focusableElements = [];
+    let firstFocusableElement = null;
+    let lastFocusableElement = null;
+    
+    /**
+     * Update focusable elements in nav
+     */
+    function updateFocusableElements() {
+        if (!mainNav) return;
+        
+        focusableElements = Array.from(
+            mainNav.querySelectorAll(
+                'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+            )
+        );
+        
+        firstFocusableElement = focusableElements[0];
+        lastFocusableElement = focusableElements[focusableElements.length - 1];
+    }
+    
+    /**
+     * Trap focus within mobile menu
+     */
+    function trapFocus(e) {
+        if (!mainNav.classList.contains('active')) return;
+        
+        if (e.key === 'Tab') {
+            if (e.shiftKey) {
+                // Shift + Tab
+                if (document.activeElement === firstFocusableElement) {
+                    e.preventDefault();
+                    lastFocusableElement.focus();
+                }
+            } else {
+                // Tab
+                if (document.activeElement === lastFocusableElement) {
+                    e.preventDefault();
+                    firstFocusableElement.focus();
+                }
+            }
+        }
     }
     
     // ==========================================
@@ -64,8 +113,12 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && mainNav.classList.contains('active')) {
                 closeMenu();
+                menuToggle.focus();
             }
         });
+        
+        // Focus trap
+        document.addEventListener('keydown', trapFocus);
     }
     
     /**
@@ -86,9 +139,21 @@
      */
     function openMenu() {
         menuToggle.classList.add('active');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        
         mainNav.classList.add('active');
+        mainNav.setAttribute('aria-hidden', 'false');
+        
         overlay.classList.add('active');
         body.style.overflow = 'hidden';
+        
+        // Update focusable elements and focus first link
+        updateFocusableElements();
+        setTimeout(() => {
+            if (firstFocusableElement) {
+                firstFocusableElement.focus();
+            }
+        }, 100);
     }
     
     /**
@@ -96,7 +161,11 @@
      */
     function closeMenu() {
         menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        
         mainNav.classList.remove('active');
+        mainNav.setAttribute('aria-hidden', 'true');
+        
         overlay.classList.remove('active');
         body.style.overflow = '';
     }
@@ -159,6 +228,11 @@
                 
                 // Close menu if open
                 closeMenu();
+                
+                // Focus target for accessibility
+                target.setAttribute('tabindex', '-1');
+                target.focus();
+                target.removeAttribute('tabindex');
             }
         });
     });
@@ -191,10 +265,12 @@
             if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                 navLinksAll.forEach(link => {
                     link.classList.remove('nav__link--active');
+                    link.removeAttribute('aria-current');
                     
                     const linkHref = link.getAttribute('href');
                     if (linkHref === `#${sectionId}`) {
                         link.classList.add('nav__link--active');
+                        link.setAttribute('aria-current', 'page');
                     }
                 });
             }
@@ -207,7 +283,42 @@
                     link.getAttribute('href') === '/' || 
                     link.getAttribute('href') === 'index.html') {
                     link.classList.add('nav__link--active');
+                    link.setAttribute('aria-current', 'page');
                 }
+            });
+        }
+    }
+    
+    // ==========================================
+    // IMAGE LAZY LOADING
+    // ==========================================
+    
+    /**
+     * Initialize lazy loading for images
+     */
+    function initLazyLoading() {
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                        img.removeAttribute('data-src');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            
+            lazyImages.forEach(img => imageObserver.observe(img));
+        } else {
+            // Fallback for older browsers
+            lazyImages.forEach(img => {
+                img.src = img.dataset.src;
+                img.classList.add('loaded');
+                img.removeAttribute('data-src');
             });
         }
     }
@@ -221,19 +332,37 @@
     }
     
     // ==========================================
-    // PUBLIC API (OPTIONAL)
+    // INITIALIZATION
+    // ==========================================
+    
+    function init() {
+        console.log('Navigation: Initializing...');
+        
+        // Initialize lazy loading
+        initLazyLoading();
+        
+        console.log('Navigation: Initialized successfully');
+    }
+    
+    // ==========================================
+    // PUBLIC API
     // ==========================================
     
     window.navigation = {
         openMenu: openMenu,
         closeMenu: closeMenu,
-        toggleMenu: toggleMenu
+        toggleMenu: toggleMenu,
+        isMenuOpen: () => mainNav.classList.contains('active')
     };
     
     // ==========================================
-    // INITIALIZE
+    // AUTO-INITIALIZE
     // ==========================================
     
-    console.log('Navigation: Initialized successfully');
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
     
 })();

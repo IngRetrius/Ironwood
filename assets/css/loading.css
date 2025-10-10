@@ -1,0 +1,429 @@
+/* ========================================
+   LOADING STATES - SKELETON LOADERS
+   ======================================== */
+
+/* ==================
+   SKELETON ANIMATION
+   ================== */
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ==================
+   SKELETON BASE
+   ================== */
+
+.skeleton-loading {
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 0%,
+        #e0e0e0 20%,
+        #f0f0f0 40%,
+        #f0f0f0 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+    border-radius: var(--border-radius-md);
+}
+
+/* Dark mode skeleton */
+.skeleton-loading--dark {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.1) 20%,
+        rgba(255, 255, 255, 0.05) 40%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+}
+
+/* ==================
+   IMAGE LOADING STATE
+   ================== */
+
+.hero__image--loading {
+    position: relative;
+}
+
+.hero__image--loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(30, 58, 95, 0.8) 0%,
+        rgba(30, 58, 95, 0.6) 20%,
+        rgba(30, 58, 95, 0.8) 40%,
+        rgba(30, 58, 95, 0.8) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+    z-index: 1;
+}
+
+/* Remove loading state when image loads */
+.hero__image--loading.loaded::before {
+    display: none;
+}
+
+/* ==================
+   TEXT SKELETONS
+   ================== */
+
+.skeleton-text {
+    height: 1em;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 0%,
+        #e0e0e0 20%,
+        #f0f0f0 40%,
+        #f0f0f0 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+    border-radius: 4px;
+    margin: 0.5em 0;
+}
+
+.skeleton-text--title {
+    height: 2em;
+    width: 70%;
+}
+
+.skeleton-text--subtitle {
+    height: 1.2em;
+    width: 90%;
+}
+
+.skeleton-text--body {
+    height: 1em;
+    width: 100%;
+}
+
+/* ==================
+   CARD SKELETONS
+   ================== */
+
+.skeleton-card {
+    background: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.skeleton-card__image {
+    width: 100%;
+    height: 240px;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 0%,
+        #e0e0e0 20%,
+        #f0f0f0 40%,
+        #f0f0f0 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+.skeleton-card__content {
+    padding: var(--spacing-xl);
+}
+
+.skeleton-card__line {
+    height: 1em;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 0%,
+        #e0e0e0 20%,
+        #f0f0f0 40%,
+        #f0f0f0 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+    border-radius: 4px;
+    margin-bottom: 0.75em;
+}
+
+.skeleton-card__line:nth-child(1) {
+    width: 60%;
+    height: 1.5em;
+}
+
+.skeleton-card__line:nth-child(2) {
+    width: 100%;
+}
+
+.skeleton-card__line:nth-child(3) {
+    width: 90%;
+}
+
+.skeleton-card__line:nth-child(4) {
+    width: 40%;
+}
+
+/* ==================
+   BUTTON SKELETONS
+   ================== */
+
+.skeleton-button {
+    display: inline-block;
+    width: 120px;
+    height: 44px;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 0%,
+        #e0e0e0 20%,
+        #f0f0f0 40%,
+        #f0f0f0 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+    border-radius: var(--border-radius-md);
+}
+
+/* ==================
+   SHIMMER EFFECT (Alternative)
+   ================== */
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.shimmer {
+    position: relative;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        transparent 100%
+    );
+    animation: shimmer 1.5s infinite;
+}
+
+/* ==================
+   PULSE EFFECT (Alternative)
+   ================== */
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.pulse {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ==================
+   LOADING SPINNER
+   ================== */
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner--small {
+    width: 20px;
+    height: 20px;
+    border-width: 2px;
+}
+
+.spinner--large {
+    width: 60px;
+    height: 60px;
+    border-width: 6px;
+}
+
+/* ==================
+   LOADING CONTAINER
+   ================== */
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+.loading-container--fullscreen {
+    min-height: 100vh;
+}
+
+/* ==================
+   FADE IN WHEN LOADED
+   ================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* ==================
+   LAZY LOAD FADE
+   ================== */
+
+img.lazy {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+img.lazy.loaded {
+    opacity: 1;
+}
+
+/* ==================
+   CONTENT PLACEHOLDER
+   ================== */
+
+.content-placeholder {
+    padding: var(--spacing-xl);
+}
+
+.content-placeholder__line {
+    height: 1em;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 0%,
+        #e0e0e0 20%,
+        #f0f0f0 40%,
+        #f0f0f0 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+    border-radius: 4px;
+    margin-bottom: 1em;
+}
+
+.content-placeholder__line:nth-child(1) {
+    width: 90%;
+}
+
+.content-placeholder__line:nth-child(2) {
+    width: 100%;
+}
+
+.content-placeholder__line:nth-child(3) {
+    width: 85%;
+}
+
+.content-placeholder__line:nth-child(4) {
+    width: 95%;
+}
+
+.content-placeholder__line:nth-child(5) {
+    width: 70%;
+}
+
+/* ==================
+   DISABLE SKELETON ON LOAD
+   ================== */
+
+.loaded .skeleton-loading {
+    animation: none;
+    background: none;
+}
+
+/* ==================
+   PROGRESSIVE BLUR
+   ================== */
+
+.progressive-blur {
+    filter: blur(20px);
+    transition: filter 0.5s ease-in-out;
+}
+
+.progressive-blur.loaded {
+    filter: blur(0);
+}
+
+/* ==================
+   STATS LOADING
+   ================== */
+
+.stat-number.skeleton-loading {
+    width: 80px;
+    height: 2.5rem;
+    display: inline-block;
+}
+
+.stat-label.skeleton-loading {
+    width: 100px;
+    height: 1rem;
+    display: inline-block;
+}
+
+/* ==================
+   RESPONSIVE SKELETONS
+   ================== */
+
+@media (max-width: 768px) {
+    .skeleton-card__image {
+        height: 200px;
+    }
+    
+    .skeleton-text--title {
+        height: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .skeleton-card__image {
+        height: 160px;
+    }
+    
+    .spinner {
+        width: 30px;
+        height: 30px;
+        border-width: 3px;
+    }
+}

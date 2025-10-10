@@ -1,5 +1,5 @@
 /* ========================================
-   RESPONSIVE DESIGN - IRONWOOD OPTIMIZED
+   RESPONSIVE DESIGN - IRONWOOD ENHANCED
    ======================================== */
 
 /* ==================
@@ -48,7 +48,7 @@
     }
     
     .hero__tab-line {
-        width: 120px;
+        width: 180px;
     }
     
     /* About Section */
@@ -64,10 +64,27 @@
         height: 400px;
     }
     
+    /* Stats */
+    .stats-row {
+        gap: var(--spacing-lg);
+    }
+    
+    .stat-number {
+        font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+    }
+    
     /* Insights Grid */
     .insights-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: var(--spacing-2xl);
+    }
+    
+    .insight-card--featured {
+        grid-column: span 1;
+    }
+    
+    .insight-card--featured .insight-card__image {
+        height: 280px;
     }
     
     /* Footer */
@@ -109,7 +126,7 @@
         font-size: 10px;
     }
     
-    /* Hero */
+    /* Hero - SIMPLIFICADO EN MOBILE */
     .hero {
         min-height: auto;
         padding: calc(var(--header-height) + var(--spacing-3xl)) 0 var(--spacing-4xl);
@@ -128,31 +145,18 @@
         font-size: clamp(0.9375rem, 2vw, 1.125rem);
     }
     
-    /* TABS APILADOS VERTICALMENTE */
+    /* OCULTAR TABS - MOSTRAR DOTS */
     .hero__tabs {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--spacing-lg);
-        margin-top: var(--spacing-3xl);
+        display: none !important;
     }
     
-    .hero__tab {
-        width: 100%;
-        align-items: flex-start;
-    }
-    
-    .hero__tab-line {
-        width: 100%;
-        max-width: 220px;
-        height: 3px;
-    }
-    
-    .hero__tab-text {
-        font-size: 15px;
+    .hero__mobile-indicator {
+        display: flex !important;
+        justify-content: flex-start;
     }
     
     .hero__tab-content {
-        min-height: 220px;
+        min-height: 200px;
     }
     
     .btn--hero {
@@ -175,8 +179,31 @@
         order: -1;
     }
     
+    .about-section__lead {
+        font-size: var(--font-size-lg);
+        padding-left: var(--spacing-md);
+    }
+    
     .about-section__text {
         font-size: var(--font-size-base);
+    }
+    
+    /* Stats - Stack on mobile */
+    .stats-row {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        text-align: left;
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .stat {
+        text-align: left;
+        padding: var(--spacing-md) 0;
+        border-bottom: 1px solid var(--color-gray-200);
+    }
+    
+    .stat:last-child {
+        border-bottom: none;
     }
     
     /* Insights Section */
@@ -184,17 +211,29 @@
         padding: var(--spacing-3xl) 0;
     }
     
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
     .insights-grid {
-        grid-template-columns: 1fr;
         gap: var(--spacing-xl);
     }
     
-    .insight-article {
-        padding: var(--spacing-lg);
+    .insight-card__image {
+        height: 200px;
     }
     
-    .insight-article__title {
+    .insight-card--featured .insight-card__image {
+        height: 220px;
+    }
+    
+    .insight-card__title a {
         font-size: var(--font-size-lg);
+    }
+    
+    .insight-card--featured .insight-card__title a {
+        font-size: var(--font-size-xl);
     }
     
     /* Footer */
@@ -275,25 +314,26 @@
     
     .hero__title {
         font-size: clamp(2rem, 8vw, 3rem);
+        margin-bottom: var(--spacing-md);
     }
     
     .hero__subtitle {
         font-size: 0.9375rem;
         line-height: 1.5;
+        margin-bottom: var(--spacing-xl);
     }
     
-    .hero__tabs {
-        gap: var(--spacing-md);
-        margin-top: var(--spacing-2xl);
+    .hero__mobile-indicator {
+        margin-top: var(--spacing-lg);
     }
     
-    .hero__tab-line {
-        max-width: 180px;
-        height: 3px;
+    .hero__dot {
+        width: 6px;
+        height: 6px;
     }
     
-    .hero__tab-text {
-        font-size: 14px;
+    .hero__dot.active {
+        width: 20px;
     }
     
     .hero__pause {
@@ -311,6 +351,8 @@
     .btn--hero {
         padding: 12px 28px;
         font-size: 0.9375rem;
+        width: 100%;
+        justify-content: center;
     }
     
     /* About Section */
@@ -326,9 +368,30 @@
         height: 250px;
     }
     
+    .about-section__lead {
+        font-size: var(--font-size-base);
+    }
+    
     .section-title {
         margin-bottom: var(--spacing-lg);
         font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+    
+    /* Stats - More compact */
+    .stats-row {
+        gap: var(--spacing-md);
+    }
+    
+    .stat {
+        padding: var(--spacing-sm) 0;
+    }
+    
+    .stat-number {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
     }
     
     /* Insights */
@@ -340,21 +403,46 @@
         gap: var(--spacing-lg);
     }
     
-    .insight-article {
-        padding: var(--spacing-md);
+    .insight-card__content {
+        padding: var(--spacing-lg);
     }
     
-    .insight-article__title {
+    .insight-card__image {
+        height: 180px;
+    }
+    
+    .insight-card--featured .insight-card__image {
+        height: 200px;
+    }
+    
+    .insight-card__title a {
         font-size: var(--font-size-base);
     }
     
-    .insight-article__excerpt {
+    .insight-card--featured .insight-card__title a {
+        font-size: var(--font-size-lg);
+    }
+    
+    .insight-card__excerpt {
         font-size: var(--font-size-sm);
+    }
+    
+    .insight-card__meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
     }
     
     /* Buttons */
     .btn {
         padding: 12px 24px;
+        font-size: var(--font-size-sm);
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .btn--secondary {
+        padding: 10px 20px;
         font-size: var(--font-size-sm);
     }
     
@@ -408,16 +496,17 @@
         font-size: 0.875rem;
     }
     
-    .hero__tabs {
-        gap: var(--spacing-sm);
+    .hero__mobile-indicator {
+        margin-top: var(--spacing-md);
     }
     
-    .hero__tab-line {
-        max-width: 150px;
+    .hero__dot {
+        width: 5px;
+        height: 5px;
     }
     
-    .hero__tab-text {
-        font-size: 13px;
+    .hero__dot.active {
+        width: 16px;
     }
     
     .nav {
@@ -427,5 +516,84 @@
     
     .footer__info-item {
         font-size: 12px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .btn--hero {
+        padding: 10px 24px;
+        font-size: 0.875rem;
+    }
+}
+
+/* ==================
+   LANDSCAPE MODE - TABLETS
+   ================== */
+
+@media (max-width: 1024px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: calc(var(--header-height) + var(--spacing-2xl)) 0 var(--spacing-3xl);
+    }
+    
+    .hero__title {
+        font-size: clamp(2rem, 5vw, 3rem);
+    }
+}
+
+/* ==================
+   TOUCH DEVICES - LARGER HIT AREAS
+   ================== */
+
+@media (hover: none) and (pointer: coarse) {
+    .btn {
+        min-height: 44px;
+        padding: 14px 32px;
+    }
+    
+    .hero__tab {
+        padding: var(--spacing-sm);
+        margin: calc(var(--spacing-sm) * -1);
+    }
+    
+    .nav__link {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .footer__social-link {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* ==================
+   PRINT STYLES
+   ================== */
+
+@media print {
+    .header,
+    .hero__pause,
+    .hero__tabs,
+    .hero__mobile-indicator,
+    .menu-toggle,
+    .nav-overlay,
+    .footer__social {
+        display: none !important;
+    }
+    
+    .hero {
+        min-height: auto;
+        page-break-after: always;
+    }
+    
+    .hero__title {
+        color: #000;
+    }
+    
+    .about-section,
+    .insights-section {
+        page-break-inside: avoid;
     }
 }

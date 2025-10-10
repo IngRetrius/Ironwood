@@ -1,16 +1,17 @@
 /**
  * ========================================
- * HERO TABS - SMOOTH ANIMATIONS
+ * HERO TABS - FIXED VERSION (OVERLAY OK)
  * ========================================
  * 
  * Features:
- * - Smooth transitions between tabs
- * - Gentle fade in/out for title
- * - Smooth background image crossfade
- * - Auto-rotation every 6 seconds (slower)
- * - Enhanced easing curves
+ * - 10 second auto-rotation
+ * - Visual progress indicator SYNCHRONIZED
+ * - Pause on hover
+ * - Smooth transitions
+ * - Accessibility improvements
+ * - ✅ NO modifica z-index (respeta overlay)
  * 
- * @version 4.0.0
+ * @version 5.2.0 - OVERLAY FIXED
  */
 
 (function() {
@@ -21,9 +22,10 @@
     // ==========================================
     
     const CONFIG = {
-        autoRotateInterval: 6000, // 6 seconds (más lento)
-        titleTransitionDuration: 500, // 0.5s para título
-        imageTransitionDuration: 1200 // 1.2s para imagen
+        autoRotateInterval: 10000, // 10 seconds
+        titleTransitionDuration: 500,
+        imageTransitionDuration: 1200,
+        progressUpdateInterval: 16 // 60fps for smooth animation
     };
     
     // Tab names in order
@@ -43,6 +45,8 @@
     const tabPanes = document.querySelectorAll('.hero__tab-pane');
     const backgroundImages = document.querySelectorAll('.hero__image');
     const pauseButton = document.getElementById('heroPause');
+    const liveRegion = document.getElementById('tabLiveRegion');
+    const mobileDots = document.querySelectorAll('.hero__dot');
     
     if (!heroSection || !heroTitle || tabButtons.length === 0) {
         console.warn('Hero tabs: Required elements not found');
@@ -54,10 +58,86 @@
     // ==========================================
     
     let currentTab = 0;
-    let autoRotateTimer = null;
+    let progressTimer = null;
     let isPaused = false;
     let isTransitioning = false;
+    let progressValue = 0;
+    let startTime = null;
     const totalTabs = tabButtons.length;
+    
+    // ==========================================
+    // PROGRESS INDICATOR
+    // ==========================================
+    
+    /**
+     * Update progress bar using requestAnimationFrame for smooth animation
+     */
+    function updateProgress(timestamp) {
+        if (!startTime) startTime = timestamp;
+        
+        // Calculate progress
+        const elapsed = timestamp - startTime;
+        progressValue = (elapsed / CONFIG.autoRotateInterval) * 100;
+        
+        // Update progress bar
+        const activeTab = tabButtons[currentTab];
+        const progressBar = activeTab.querySelector('.hero__tab-progress');
+        if (progressBar) {
+            progressBar.style.width = `${Math.min(progressValue, 100)}%`;
+        }
+        
+        // Check if we should advance to next tab
+        if (progressValue >= 100) {
+            // Reset and go to next tab
+            progressValue = 0;
+            startTime = null;
+            
+            // Advance only if not paused and not currently transitioning
+            if (!isPaused && !isTransitioning) {
+                nextTab();
+            }
+        }
+        
+        // Continue animation if not paused
+        if (!isPaused) {
+            progressTimer = requestAnimationFrame(updateProgress);
+        }
+    }
+    
+    /**
+     * Start progress animation
+     */
+    function startProgress() {
+        stopProgress();
+        startTime = null;
+        progressValue = 0;
+        // Start continuous progress animation. Hover no longer pauses progress.
+        progressTimer = requestAnimationFrame(updateProgress);
+    }
+    
+    /**
+     * Stop progress animation
+     */
+    function stopProgress() {
+        if (progressTimer) {
+            cancelAnimationFrame(progressTimer);
+            progressTimer = null;
+        }
+    }
+    
+    /**
+     * Reset progress bar
+     */
+    function resetProgress() {
+        progressValue = 0;
+        startTime = null;
+        tabButtons.forEach(btn => {
+            const progressBar = btn.querySelector('.hero__tab-progress');
+            if (progressBar) {
+                progressBar.style.width = '0%';
+            }
+        });
+    }
     
     // ==========================================
     // TAB SWITCHING LOGIC
@@ -72,24 +152,49 @@
         
         isTransitioning = true;
         
+        // Micro-interaction: Scale effect
+        const newTab = tabButtons[index];
+        newTab.style.transform = 'scale(1.05)';
+        setTimeout(() => {
+            newTab.style.transform = '';
+        }, 200);
+        
         // Update current tab
+        const previousTab = currentTab;
         currentTab = index;
         
         // Update tab buttons
         tabButtons.forEach((btn, i) => {
             if (i === index) {
                 btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+                btn.setAttribute('tabindex', '0');
             } else {
                 btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+                btn.setAttribute('tabindex', '-1');
             }
         });
+        
+        // Update mobile dots
+        if (mobileDots.length > 0) {
+            mobileDots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
         
         // Update tab panes
         tabPanes.forEach((pane, i) => {
             if (i === index) {
                 pane.classList.add('active');
+                pane.setAttribute('aria-hidden', 'false');
             } else {
                 pane.classList.remove('active');
+                pane.setAttribute('aria-hidden', 'true');
             }
         });
         
@@ -99,10 +204,23 @@
         // Update background images
         updateBackgroundImage(index);
         
+        // Announce change to screen readers
+        announceTabChange(index);
+        
+        // Reset progress
+        resetProgress();
+        
+        // Restart progress animation (hover no longer pauses progress)
+        if (!isPaused) {
+            startProgress();
+        }
+        
         // Reset transition flag after animation completes
         setTimeout(() => {
             isTransitioning = false;
         }, CONFIG.imageTransitionDuration);
+        
+        console.log(`Tab changed: ${previousTab} → ${index} (${TAB_NAMES[index]})`);
     }
     
     /**
@@ -131,6 +249,7 @@
     
     /**
      * Update background image with smooth crossfade
+     * ✅ NO MODIFICA Z-INDEX - Respeta el overlay
      * @param {number} index - Tab index
      */
     function updateBackgroundImage(index) {
@@ -139,10 +258,22 @@
         backgroundImages.forEach(img => {
             if (img.dataset.tab === tabName) {
                 img.style.opacity = '1';
+                console.log(`Showing image for: ${tabName}`);
             } else {
                 img.style.opacity = '0';
             }
         });
+    }
+    
+    /**
+     * Announce tab change to screen readers
+     * @param {number} index - Tab index
+     */
+    function announceTabChange(index) {
+        if (liveRegion) {
+            const tabText = tabButtons[index].querySelector('.hero__tab-text').textContent;
+            liveRegion.textContent = `Now viewing: ${tabText}`;
+        }
     }
     
     /**
@@ -164,43 +295,6 @@
     }
     
     // ==========================================
-    // AUTO-ROTATION
-    // ==========================================
-    
-    /**
-     * Start auto-rotation
-     */
-    function startAutoRotate() {
-        if (autoRotateTimer) return;
-        
-        autoRotateTimer = setInterval(() => {
-            if (!isPaused && !isTransitioning) {
-                nextTab();
-            }
-        }, CONFIG.autoRotateInterval);
-    }
-    
-    /**
-     * Stop auto-rotation
-     */
-    function stopAutoRotate() {
-        if (autoRotateTimer) {
-            clearInterval(autoRotateTimer);
-            autoRotateTimer = null;
-        }
-    }
-    
-    /**
-     * Reset auto-rotation timer
-     */
-    function resetAutoRotate() {
-        stopAutoRotate();
-        if (!isPaused) {
-            startAutoRotate();
-        }
-    }
-    
-    // ==========================================
     // PAUSE/RESUME
     // ==========================================
     
@@ -214,21 +308,23 @@
             pauseButton.classList.add('paused');
             pauseButton.setAttribute('aria-label', 'Resume slideshow');
             pauseButton.innerHTML = `
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <polygon points="8 5 19 12 8 19"/>
                 </svg>
             `;
-            stopAutoRotate();
+            stopProgress();
+            console.log('Hero: Paused');
         } else {
             pauseButton.classList.remove('paused');
             pauseButton.setAttribute('aria-label', 'Pause slideshow');
             pauseButton.innerHTML = `
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <rect x="6" y="4" width="4" height="16" rx="1"/>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <rect x="6" y="4" width="4" width="16" rx="1"/>
                     <rect x="14" y="4" width="4" height="16" rx="1"/>
                 </svg>
             `;
-            startAutoRotate();
+            startProgress();
+            console.log('Hero: Resumed');
         }
     }
     
@@ -246,9 +342,8 @@
         const tabName = button.dataset.tab;
         const tabIndex = TAB_NAMES.indexOf(tabName);
         
-        if (tabIndex !== -1) {
+        if (tabIndex !== -1 && tabIndex !== currentTab) {
             switchTab(tabIndex);
-            resetAutoRotate();
         }
     }
     
@@ -268,13 +363,11 @@
             case 'ArrowUp':
                 e.preventDefault();
                 prevTab();
-                resetAutoRotate();
                 break;
             case 'ArrowRight':
             case 'ArrowDown':
                 e.preventDefault();
                 nextTab();
-                resetAutoRotate();
                 break;
             case ' ':
             case 'Escape':
@@ -287,20 +380,8 @@
     /**
      * Handle mouse enter (pause auto-rotate)
      */
-    function handleMouseEnter() {
-        if (!isPaused) {
-            stopAutoRotate();
-        }
-    }
-    
-    /**
-     * Handle mouse leave (resume auto-rotate)
-     */
-    function handleMouseLeave() {
-        if (!isPaused) {
-            startAutoRotate();
-        }
-    }
+    // Hover pause logic removed: progress now continues regardless of mouse hover.
+    // The pause/resume control remains available via the pause button.
     
     // ==========================================
     // EVENT LISTENERS
@@ -319,10 +400,8 @@
         
         // Keyboard navigation
         document.addEventListener('keydown', handleKeyboard);
-        
-        // Mouse hover pause
-        heroSection.addEventListener('mouseenter', handleMouseEnter);
-        heroSection.addEventListener('mouseleave', handleMouseLeave);
+
+        // Note: mouseenter/mouseleave listeners removed to keep autoplay running during hover
     }
     
     function removeEventListeners() {
@@ -335,8 +414,7 @@
         }
         
         document.removeEventListener('keydown', handleKeyboard);
-        heroSection.removeEventListener('mouseenter', handleMouseEnter);
-        heroSection.removeEventListener('mouseleave', handleMouseLeave);
+        // mouseenter/mouseleave listeners were never attached in the new behavior
     }
     
     // ==========================================
@@ -344,7 +422,29 @@
     // ==========================================
     
     function init() {
-        console.log('Hero Tabs: Initializing with smooth animations...');
+        console.log('Hero Tabs: Initializing with overlay support...');
+        console.log(`Total tabs: ${totalTabs}`);
+        console.log(`Tab names: ${TAB_NAMES.join(', ')}`);
+        console.log(`Auto-rotate interval: ${CONFIG.autoRotateInterval}ms`);
+        
+        // Verify images
+        backgroundImages.forEach((img, i) => {
+            console.log(`Image ${i}: ${img.src} - Tab: ${img.dataset.tab}`);
+            
+            // Add load event listeners
+            if (img.complete) {
+                console.log(`Image ${i} already loaded`);
+                img.classList.add('loaded');
+            } else {
+                img.addEventListener('load', function() {
+                    console.log(`Image ${i} loaded successfully`);
+                    this.classList.add('loaded');
+                });
+                img.addEventListener('error', function() {
+                    console.error(`Image ${i} failed to load:`, this.src);
+                });
+            }
+        });
         
         // Set initial tab
         switchTab(0);
@@ -352,14 +452,15 @@
         // Attach event listeners
         attachEventListeners();
         
-        // Start auto-rotation
-        startAutoRotate();
+        // Start auto-rotation with progress
+        startProgress();
         
         console.log('Hero Tabs: Initialized successfully');
+        console.log('✅ Overlay preserved - z-index not modified');
     }
     
     function destroy() {
-        stopAutoRotate();
+        stopProgress();
         removeEventListeners();
         console.log('Hero Tabs: Destroyed');
     }

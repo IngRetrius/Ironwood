@@ -1,9 +1,9 @@
 /* ========================================
-   COMPONENTS STYLES - IRONWOOD OPTIMIZED
+   COMPONENTS STYLES - IRONWOOD ENHANCED
    ======================================== */
 
 /* ==================
-   BUTTONS
+   BUTTONS - WITH MICRO-INTERACTIONS
    ================== */
 
 .btn {
@@ -20,6 +20,27 @@
     cursor: pointer;
     transition: all var(--transition-base);
     border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ripple effect on click */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:active::before {
+    width: 300px;
+    height: 300px;
 }
 
 .btn--primary {
@@ -33,6 +54,10 @@
     box-shadow: var(--shadow-lg);
 }
 
+.btn--primary:active {
+    transform: translateY(0);
+}
+
 .btn--secondary {
     background-color: var(--color-primary);
     color: var(--color-white);
@@ -42,6 +67,10 @@
     background-color: var(--color-primary-dark);
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
+}
+
+.btn--secondary:active {
+    transform: translateY(0);
 }
 
 .btn--hero {
@@ -68,7 +97,7 @@
 }
 
 /* ==================
-   HERO TABS - LÍNEAS MÁS GRANDES
+   HERO TABS - WITH PROGRESS BAR
    ================== */
 
 .hero__tabs {
@@ -97,18 +126,41 @@
     opacity: 0.8;
 }
 
-/* LÍNEAS MÁS GRANDES */
+.hero__tab:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* TAB LINE WITH PROGRESS */
 .hero__tab-line {
     width: 200px;
     height: 5px;
     background: rgba(255, 255, 255, 0.25);
     border-radius: 3px;
-    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+/* PROGRESS BAR */
+.hero__tab-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--color-white);
+    transition: width 0.05s linear;
+    border-radius: 3px;
 }
 
 .hero__tab.active .hero__tab-line {
-    background: var(--color-white);
-    box-shadow: 0 3px 15px rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 3px 15px rgba(255, 255, 255, 0.2);
+}
+
+.hero__tab.active .hero__tab-progress {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
 .hero__tab-text {
@@ -148,7 +200,7 @@
     position: relative;
 }
 
-/* Hero Pause Button */
+/* Hero Pause Button - Enhanced */
 .hero__pause {
     position: absolute;
     bottom: 30px;
@@ -172,16 +224,77 @@
     transform: scale(1.08);
 }
 
+.hero__pause:active {
+    transform: scale(0.95);
+}
+
+.hero__pause:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+}
+
 .hero__pause svg {
     color: var(--color-white);
+    transition: transform var(--transition-fast);
 }
 
-.hero__pause.paused svg rect:first-child {
-    transform: translateX(-2px);
+/* Mobile Indicators - Hidden by default */
+.hero__mobile-indicator {
+    display: none;
+    gap: 8px;
+    margin-top: 24px;
+    justify-content: center;
 }
 
-.hero__pause.paused svg rect:last-child {
-    transform: translateX(2px);
+.hero__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transition: all var(--transition-base);
+}
+
+.hero__dot.active {
+    background: white;
+    width: 24px;
+    border-radius: 4px;
+}
+
+/* ==================
+   SKIP LINK - ACCESSIBILITY
+   ================== */
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-primary);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-weight: var(--font-weight-semibold);
+    z-index: 9999;
+    border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ==================
+   SCREEN READER ONLY
+   ================== */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 /* ==================
@@ -223,28 +336,13 @@
 }
 
 @media (max-width: 768px) {
-    /* TABS APILADOS VERTICALMENTE EN MOBILE */
+    /* HIDE TABS, SHOW DOTS */
     .hero__tabs {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--spacing-lg);
-        margin-top: var(--spacing-3xl);
+        display: none;
     }
     
-    .hero__tab {
-        width: 100%;
-        align-items: flex-start;
-        gap: 12px;
-    }
-    
-    .hero__tab-line {
-        width: 100%;
-        max-width: 250px;
-        height: 4px;
-    }
-    
-    .hero__tab-text {
-        font-size: 16px;
+    .hero__mobile-indicator {
+        display: flex;
     }
     
     .hero__tab-content {
@@ -258,18 +356,8 @@
 }
 
 @media (max-width: 480px) {
-    .hero__tabs {
-        gap: var(--spacing-md);
-        margin-top: var(--spacing-2xl);
-    }
-    
-    .hero__tab-line {
-        max-width: 200px;
-        height: 4px;
-    }
-    
-    .hero__tab-text {
-        font-size: 15px;
+    .hero__mobile-indicator {
+        margin-top: 20px;
     }
     
     .btn--hero {
