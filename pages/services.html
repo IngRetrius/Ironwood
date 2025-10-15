@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Services - Coming Soon - Ironwood Infrastructure">
+    <title>Our Services - Ironwood Infrastructure</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/typography.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    
+    <style>
+        body{background:#fff}.header{background:rgba(255,255,255,0.98);backdrop-filter:blur(10px);border-bottom:1px solid var(--color-gray-200);box-shadow:0 2px 10px rgba(0,0,0,0.08)}.logo__brand{color:var(--color-secondary)}.logo__subtitle{color:var(--color-gray-600)}.menu-toggle__line{background-color:var(--color-secondary)}.coming-soon-section{min-height:calc(100vh - var(--header-height));display:flex;align-items:center;justify-content:center;padding:var(--spacing-3xl) 0;background:#fff}.coming-soon-content{position:relative;z-index:1;text-align:center;max-width:1100px;width:92%;padding:56px 48px 48px;background:linear-gradient(135deg,var(--color-secondary) 0%,var(--color-secondary-dark) 100%);border-radius:20px;box-shadow:0 24px 70px rgba(30,58,95,0.3);overflow:hidden}.coming-soon-content::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.03"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>') repeat;opacity:1;z-index:0}.coming-soon-inner{position:relative;z-index:1}.coming-soon-icon{width:110px;height:110px;margin:0 auto 24px;background:linear-gradient(135deg,var(--color-primary) 0%,var(--color-accent) 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;animation:float 3s ease-in-out infinite;box-shadow:0 10px 35px rgba(249,115,22,0.45)}@keyframes float{0%,100%{transform:translateY(0px)}50%{transform:translateY(-6px)}}.coming-soon-icon svg{width:56px;height:56px;color:white}.coming-soon-badge{display:inline-block;padding:8px 20px;background:rgba(249,115,22,0.2);border:2px solid var(--color-primary);border-radius:var(--border-radius-full);color:var(--color-primary);font-size:12px;font-weight:var(--font-weight-bold);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:20px}.coming-soon-title{font-family:var(--font-primary);font-size:clamp(2.25rem,5.5vw,3.25rem);font-weight:800;color:white;line-height:1.15;margin-bottom:18px;text-shadow:0 4px 20px rgba(0,0,0,0.3)}.coming-soon-subtitle{font-size:clamp(1.05rem,2vw,1.2rem);color:rgba(255,255,255,0.96);line-height:1.55;margin-bottom:28px;text-shadow:0 2px 10px rgba(0,0,0,0.2);max-width:750px;margin-left:auto;margin-right:auto}.coming-soon-description{font-size:15.5px;color:rgba(255,255,255,0.88);line-height:1.65;margin-bottom:32px;padding:20px 0;border-top:1px solid rgba(255,255,255,0.18);border-bottom:1px solid rgba(255,255,255,0.18);max-width:750px;margin-left:auto;margin-right:auto}.coming-soon-features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:36px;max-width:800px;margin-left:auto;margin-right:auto}.feature-item{display:flex;flex-direction:column;align-items:center;gap:10px;padding:20px 16px;background:rgba(255,255,255,0.1);border-radius:12px;border:1px solid rgba(255,255,255,0.18);transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}.feature-item:hover{background:rgba(255,255,255,0.15);transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.15)}.feature-icon{width:44px;height:44px;color:var(--color-accent)}.feature-text{font-size:14px;color:rgba(255,255,255,0.96);font-weight:var(--font-weight-semibold);letter-spacing:0.01em}.coming-soon-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}.btn-back,.btn-contact{padding:14px 32px;border-radius:10px;font-family:var(--font-secondary);font-size:15px;font-weight:var(--font-weight-semibold);text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}.btn-back{background:white;color:var(--color-secondary);box-shadow:0 4px 16px rgba(0,0,0,0.18)}.btn-back:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.25)}.btn-contact{background:transparent;color:white;border:2px solid rgba(255,255,255,0.9);box-shadow:0 4px 16px rgba(0,0,0,0.1)}.btn-contact:hover{background:rgba(255,255,255,0.12);border-color:white;transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.15)}.floating{animation:float 3s ease-in-out infinite}
+    </style>
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="../index.html" class="logo">
+                    <img src="../assets/images/logo-ironwood.svg" alt="Ironwood Infrastructure" class="logo__svg">
+                    <div class="logo__text">
+                        <span class="logo__brand">IRONWOOD</span>
+                        <span class="logo__subtitle">Infrastructure</span>
+                    </div>
+                </a>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span class="menu-toggle__line"></span>
+                    <span class="menu-toggle__line"></span>
+                    <span class="menu-toggle__line"></span>
+                </button>
+                
+                <nav class="nav" id="mainNav">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="../index.html" class="nav__link">Home</a></li>
+                        <li class="nav__item"><a href="about.html" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="services.html" class="nav__link nav__link--active">Services</a></li>
+                        <li class="nav__item"><a href="projects.html" class="nav__link">Projects</a></li>
+                        <li class="nav__item"><a href="insights.html" class="nav__link">Insights</a></li>
+                        <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="coming-soon-section">
+        <div class="container">
+            <div class="coming-soon-content">
+                <div class="coming-soon-inner">
+                    
+                    <div class="coming-soon-icon floating">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    
+                    <div class="coming-soon-badge">SERVICES • COMING SOON</div>
+                    
+                    <h1 class="coming-soon-title">Expert Services In Development</h1>
+                    
+                    <p class="coming-soon-subtitle">
+                        We're building a comprehensive showcase of our Grade Crossing, Project Support, and Training services.
+                    </p>
+                    
+                    <p class="coming-soon-description">
+                        Our Services page will provide detailed information about each service offering, including methodologies, case studies, and how we can support your railway infrastructure needs.
+                    </p>
+                    
+                    <div class="coming-soon-features">
+                        <div class="feature-item">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                            <span class="feature-text">Grade Crossing</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                            </svg>
+                            <span class="feature-text">Project Support</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                            <span class="feature-text">Training Programs</span>
+                        </div>
+                    </div>
+                    
+                    <div class="coming-soon-actions">
+                        <a href="../index.html" class="btn-back">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 12H5M12 19l-7-7 7-7"/>
+                            </svg>
+                            Back to Home
+                        </a>
+                        <a href="contact.html" class="btn-contact">
+                            Contact Us
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../assets/js/navigation.js"></script>
+</body>
+</html>
