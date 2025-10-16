@@ -3,12 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Delivering safe, compliant, and future-ready railway infrastructure solutions">
+    <meta name="description" content="Delivering safe, compliant, and future-ready railway infrastructure solutions across Canada. 120+ projects, 15+ years expertise.">
     <title>Ironwood Infrastructure - We Engineer the Future of Rail</title>
     
-    <!-- Google Fonts -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ironwoodinfrastructure.com/">
+    <meta property="og:title" content="Ironwood Infrastructure - Railway Engineering Excellence">
+    <meta property="og:description" content="Delivering safe, compliant railway infrastructure solutions across Canada. 120+ projects, 15+ years expertise.">
+    <meta property="og:image" content="https://ironwoodinfrastructure.com/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ironwoodinfrastructure.com/">
+    <meta property="twitter:title" content="Ironwood Infrastructure - Railway Engineering Excellence">
+    <meta property="twitter:description" content="Delivering safe, compliant railway infrastructure solutions across Canada. 120+ projects, 15+ years expertise.">
+    <meta property="twitter:image" content="https://ironwoodinfrastructure.com/assets/images/twitter-card.jpg">
+    
+    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/css/variables.css" as="style">
+    <link rel="preload" href="assets/images/hero/home-hero.png" as="image">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- CSS Files -->
@@ -17,8 +37,39 @@
     <link rel="stylesheet" href="assets/css/typography.css">
     <link rel="stylesheet" href="assets/css/layout.css">
     <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/back-to-top.css">
     <link rel="stylesheet" href="assets/css/loading.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Ironwood Infrastructure Inc.",
+      "url": "https://ironwoodinfrastructure.com",
+      "logo": "https://ironwoodinfrastructure.com/assets/images/logo-ironwood.svg",
+      "description": "Expert railway infrastructure solutions across Canada",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2425 Matheson Blvd. E., Suite 824",
+        "addressLocality": "Mississauga",
+        "addressRegion": "Ontario",
+        "postalCode": "L4W 5K4",
+        "addressCountry": "CA"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-647-336-5497",
+        "contactType": "Customer Service",
+        "email": "Info@ironwoodinfrastructure.com"
+      },
+      "sameAs": [
+        "https://linkedin.com/company/ironwood-infrastructure",
+        "https://twitter.com/ironwoodinfra"
+      ]
+    }
+    </script>
 </head>
 <body>
     
@@ -71,9 +122,22 @@
         <section class="hero hero--tabbed" id="heroSection" aria-label="Featured services">
             <!-- Background Images for each tab -->
             <div class="hero__background" aria-hidden="true">
-                <img src="assets/images/hero/home-hero.png" alt="Grade Crossing Safety" class="hero__image" data-tab="grade-crossing">
-                <img src="assets/images/hero/home-hero2.png" alt="Project Support" class="hero__image" data-tab="project-support">
-                <img src="assets/images/hero/home-hero3.png" alt="Training Programs" class="hero__image" data-tab="training">
+                <img src="assets/images/hero/home-hero.png" 
+                     alt="Grade Crossing Safety" 
+                     class="hero__image" 
+                     data-tab="grade-crossing"
+                     loading="eager"
+                     fetchpriority="high">
+                <img src="assets/images/hero/home-hero2.png" 
+                     alt="Project Support" 
+                     class="hero__image" 
+                     data-tab="project-support"
+                     loading="lazy">
+                <img src="assets/images/hero/home-hero3.png" 
+                     alt="Training Programs" 
+                     class="hero__image" 
+                     data-tab="training"
+                     loading="lazy">
                 <div class="hero__overlay"></div>
             </div>
             
@@ -208,24 +272,24 @@
                     <div class="about-section__content">
                         
                         <!-- 1. PROBLEMA -->
-                        <p class="about-section__lead">
+                        <p class="about-section__lead" data-reveal="fade-up" data-reveal-delay="100">
                             Railway projects fail when stakeholders can't align on safety, compliance, and execution.
                         </p>
                         
                         <!-- 2. SOLUCIÓN -->
-                        <h2 class="section-title" id="about-title">
+                        <h2 class="section-title" id="about-title" data-reveal="fade-up" data-reveal-delay="200">
                             We Bridge the Gap Between Vision and Reality
                         </h2>
                         
                         <!-- 3. VALOR -->
-                        <p class="about-section__text">
+                        <p class="about-section__text" data-reveal="fade-up" data-reveal-delay="300">
                             With 15+ years of experience delivering 120+ grade crossing projects, we ensure zero compromises 
                             on safety while keeping every stakeholder aligned. Our expertise spans railway engineering, 
                             regulatory compliance, and complex joint infrastructure projects regulated by the CTA.
                         </p>
                         
                         <!-- STATS ROW -->
-                        <div class="stats-row">
+                        <div class="stats-row" data-reveal="fade-up" data-reveal-delay="400">
                             <div class="stat">
                                 <span class="stat-number">120<span class="stat-plus">+</span></span>
                                 <span class="stat-label">Projects Delivered</span>
@@ -240,16 +304,22 @@
                             </div>
                         </div>
                         
-                        <a href="pages/about.html" class="btn btn--primary">
-                            Meet Our Team
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                        </a>
+                        <div data-reveal="fade-up" data-reveal-delay="500">
+                            <a href="pages/about.html" class="btn btn--primary">
+                                Meet Our Team
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                     
-                    <div class="about-section__image">
-                        <img src="assets/images/Railk.jpg" alt="Railk" class="about-section__img">
+                    <div class="about-section__image" data-reveal="fade-left" data-reveal-delay="200">
+                        <img src="assets/images/Railk.jpg" 
+                             alt="Railway infrastructure and grade crossing" 
+                             class="about-section__img"
+                             loading="lazy"
+                             decoding="async">
                     </div>
 
                 </div>
@@ -263,7 +333,7 @@
             <div class="container">
                 
                 <!-- Header with CTA -->
-                <div class="section-header">
+                <div class="section-header" data-reveal="fade-up">
                     <h2 class="section-title" id="insights-title">Industry Insights</h2>
                     <a href="pages/insights.html" class="btn btn--secondary">
                         View All Articles
@@ -276,10 +346,12 @@
                 <div class="insights-grid">
                     
                     <!-- Card 1 - FEATURED -->
-                    <article class="insight-card insight-card--featured">
+                    <article class="insight-card insight-card--featured" data-reveal="fade-up" data-reveal-delay="100">
                         <div class="insight-card__image">
                             <img src="assets/images/insights/Whistle.png" 
                                 alt="Railway crossing whistle cessation" 
+                                loading="lazy"
+                                decoding="async"
                                 style="width: 100%; height: 100%; object-fit: cover;">
                             <span class="insight-card__badge">Featured</span>
                         </div>
@@ -315,10 +387,12 @@
                     </article>
 
                     <!-- Card 2 -->
-                    <article class="insight-card">
+                    <article class="insight-card" data-reveal="fade-up" data-reveal-delay="200">
                         <div class="insight-card__image">
                             <img src="assets/images/insights/Trainstock.png" 
                                 alt="Enhanced rail crossing safety" 
+                                loading="lazy"
+                                decoding="async"
                                 style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="insight-card__content">
@@ -353,10 +427,12 @@
                     </article>
 
                     <!-- Card 3 -->
-                    <article class="insight-card">
+                    <article class="insight-card" data-reveal="fade-up" data-reveal-delay="300">
                         <div class="insight-card__image">
                             <img src="assets/images/insights/Railsafety.jpg" 
                                 alt="Future railway infrastructure trends" 
+                                loading="lazy"
+                                decoding="async"
                                 style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="insight-card__content">
@@ -474,6 +550,10 @@
     <!-- JavaScript Files -->
     <script src="assets/js/navigation.js"></script>
     <script src="assets/js/hero-tabs.js"></script>
+    <script src="assets/js/counter-animation.js"></script>
+    <script src="assets/js/scroll-reveal.js"></script>
+    <script src="assets/js/back-to-top.js"></script>
+    <script src="assets/js/touch-gestures.js"></script>
     
 </body>
 </html>

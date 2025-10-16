@@ -1,0 +1,126 @@
+/* ========================================
+   BACK TO TOP BUTTON STYLES
+   ======================================== */
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.8);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.back-to-top:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(249, 115, 22, 0.5);
+    background: var(--color-primary-dark);
+}
+
+.back-to-top:active {
+    transform: translateY(-2px) scale(1);
+}
+
+.back-to-top:focus-visible {
+    outline: 3px solid rgba(249, 115, 22, 0.5);
+    outline-offset: 3px;
+}
+
+/* Icon */
+.back-to-top__icon {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.back-to-top:hover .back-to-top__icon {
+    transform: translateY(-2px);
+}
+
+/* Progress Circle */
+.back-to-top__progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    z-index: 1;
+}
+
+.back-to-top__progress-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.2);
+    stroke-width: 3;
+}
+
+.back-to-top__progress-fill {
+    fill: none;
+    stroke: var(--color-white);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 283; /* 2 * PI * 45 */
+    stroke-dashoffset: 283;
+    transition: stroke-dashoffset 0.1s linear;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .back-to-top {
+        width: 48px;
+        height: 48px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .back-to-top__icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .back-to-top {
+        width: 52px;
+        height: 52px;
+        bottom: 25px;
+        right: 25px;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .back-to-top,
+    .back-to-top__icon,
+    .back-to-top__progress-fill {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Print */
+@media print {
+    .back-to-top {
+        display: none !important;
+    }
+}
